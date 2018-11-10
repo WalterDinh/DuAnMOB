@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateDrinksActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2">
+
+        <fragment
+            android:id="@+id/fragmenttypefood"
+            android:name="com.lee.halu.du_an_1_mob.UpdateTypeDrinksFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></fragment>
+
+        <fragment
+            android:id="@+id/fragmentfoodname"
+            android:name="com.lee.halu.du_an_1_mob.UpdateDrinksNameFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></fragment>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

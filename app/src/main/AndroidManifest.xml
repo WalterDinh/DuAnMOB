@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lee.halu.du_an_1_mob">
+
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -22,6 +23,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".HelloActivity" />
+        <activity
+            android:name=".ListOrderActivity"
+            android:label="@string/title_activity_list_order"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".FragmentManagerActivity" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".UserActivity" />
+        <activity android:name=".ChangePassword" />
+        <activity android:name=".ChoseCreateDataActivity" />
+        <activity android:name=".CreateDiagramActivity" />
+        <activity android:name=".CreateZoneActivity" />
+        <activity android:name=".CreateTableActivity" />
+        <activity android:name=".CreateTypeDrinksActivity" />
+        <activity android:name=".CreateDrinksActivity" />
+        <activity android:name=".ChoseCreatePubulumActivity" />
+        <activity android:name=".ListBillActivity" />
+        <activity android:name=".StatisticalActivity" />
+        <activity android:name=".UpdateDiagramActivity" />
+        <activity android:name=".UpdateFoodActivity" />
+        <activity android:name=".UpdateDrinksActivity" />
+        <activity android:name=".CreateTypeFoodActivity" />
+        <activity android:name=".CreateFoodActivity" />
+        <activity android:name=".PayActivity"></activity>
     </application>
 
 </manifest>
