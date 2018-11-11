@@ -17,8 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DiagramFragment diagramFragment;
     private ListOrderFragment listOrderFragment;
     @Override
@@ -91,6 +90,7 @@ public class HomeActivity extends AppCompatActivity
             startActivity(new Intent(HomeActivity.this, UserActivity.class));
 
         } else if (id == R.id.nav_send) {
+            startActivity(new Intent(HomeActivity.this, PayActivity.class));
 
         }
 
