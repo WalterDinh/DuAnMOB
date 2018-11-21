@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.database.DatabaseReference;
@@ -18,16 +19,27 @@ public class CreateTypeDrinksActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        init();
         setContentView(R.layout.activity_create_type_drinks);
-        final String idtypedrinks = edtTypeDrinksId.getText().toString();
-        final String typedrinksname=edtDrinksName.getText().toString();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("LoaiDoUong");
-        String typedrinksids = myRef.child(idtypedrinks).getKey();
-        Model model = new Model(idtypedrinks, typedrinksname);
-        myRef.child(typedrinksids).setValue(model);
-        startActivity(new Intent(CreateTypeDrinksActivity.this,UpdateDrinksActivity.class));
+        init();
+        btnCreateTypeDrinks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String idtypedrinks = edtTypeDrinksId.getText().toString();
+                final String typedrinksname=edtDrinksName.getText().toString();
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("LoaiDoUong");
+                String typedrinksids = myRef.child(idtypedrinks).getKey();
+                Model model = new Model(idtypedrinks, typedrinksname);
+                myRef.child(typedrinksids).setValue(model);
+                startActivity(new Intent(CreateTypeDrinksActivity.this,UpdateDrinksActivity.class));
+            }
+        });
+     btnBackToUpdateDrinks.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             startActivity(new Intent(CreateTypeDrinksActivity.this,UpdateDrinksActivity.class));
+         }
+     });
     }
     private void init(){
         btnCreateTypeDrinks = (Button) findViewById(R.id.btn_create_type_drinks);

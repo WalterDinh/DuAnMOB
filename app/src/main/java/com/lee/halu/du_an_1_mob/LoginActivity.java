@@ -42,25 +42,6 @@ import static android.Manifest.permission.READ_CONTACTS;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity {
-
-    /**
-     * Id to identity READ_CONTACTS permission request.
-     */
-    private static final int REQUEST_READ_CONTACTS = 0;
-
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
-
-    // UI references.
-
     private ProgressBar loginProgress;
     private ImageView imageView;
     private LinearLayout emailLoginForm;
@@ -73,24 +54,23 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loginactivity);
 
-init();
-emailSignInButton.setOnClickListener(new OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+        init();
+        emailSignInButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            }
+        });
     }
-});
+
+    private void init() {
+        loginProgress = (ProgressBar) findViewById(R.id.login_progress);
+        imageView = (ImageView) findViewById(R.id.imageView);
+        emailLoginForm = (LinearLayout) findViewById(R.id.email_login_form);
+        email = (AutoCompleteTextView) findViewById(R.id.email);
+        password = (EditText) findViewById(R.id.password);
+        emailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+
     }
-private void init(){
-
-
-    loginProgress = (ProgressBar) findViewById(R.id.login_progress);
-    imageView = (ImageView) findViewById(R.id.imageView);
-    emailLoginForm = (LinearLayout) findViewById(R.id.email_login_form);
-    email = (AutoCompleteTextView) findViewById(R.id.email);
-    password = (EditText) findViewById(R.id.password);
-    emailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-
-}
 
 }
