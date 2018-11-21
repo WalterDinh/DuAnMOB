@@ -17,5 +17,6 @@ private UpdateZoneFragment updateZoneFragment;
         FragmentTransaction ft = manager.beginTransaction();
         ft.show(updateTableFragment);
         ft.show(updateZoneFragment);
+
     }
 }

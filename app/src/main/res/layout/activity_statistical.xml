@@ -160,7 +160,7 @@
         <TextView
             android:textAlignment="center"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Tên món"
             android:textColor="#fff"
@@ -169,7 +169,7 @@
         <TextView
             android:layout_weight="1"
             android:textAlignment="center"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Số lượng"
             android:textColor="#fff"
@@ -178,7 +178,7 @@
         <TextView
             android:layout_weight="1"
             android:textAlignment="center"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Tiền thu"
             android:textColor="#fff" />

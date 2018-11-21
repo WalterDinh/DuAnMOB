@@ -13,9 +13,9 @@ private UpdateTypeFoodFragment updateTypeFoodFragment;
         setContentView(R.layout.activity_update_food_fragment);
         updateFoodNameFragment=new UpdateFoodNameFragment();
         updateTypeFoodFragment=new UpdateTypeFoodFragment();
-      /*  android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
+       android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
         ft.show(updateFoodNameFragment);
-        ft.show(updateTypeFoodFragment);*/
+        ft.show(updateTypeFoodFragment);
     }
 }

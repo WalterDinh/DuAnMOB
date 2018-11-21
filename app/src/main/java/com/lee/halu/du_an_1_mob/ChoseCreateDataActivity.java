@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class ChoseCreateDataActivity extends AppCompatActivity {
     private ImageView imgLogoCreateData;
     private Button btnCreateDiagram;
@@ -27,6 +30,7 @@ public class ChoseCreateDataActivity extends AppCompatActivity {
         btnCreateDiagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(ChoseCreateDataActivity.this,UpdateDiagramActivity.class));
 
             }
