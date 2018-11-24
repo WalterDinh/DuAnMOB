@@ -18,11 +18,11 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpdateTypeFoodActivity extends AppCompatActivity {
-    private Button btnUpdateTypeFood;
-    private Button btnUbackToChosePubulum;
-    private TextInputEditText edtUpdateTypeFoodId;
-    private TextInputEditText edtUpdateFoodName;
+public class UpdateZoneActivity extends AppCompatActivity {
+    private Button btnUpdateZone;
+    private Button btnBackUpdateDiagram;
+    private TextInputEditText edtUpdateZoneId;
+    private TextInputEditText edtUpdateZoneName;
     final List<Model> models = new ArrayList<Model>();
     int position;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -31,13 +31,13 @@ public class UpdateTypeFoodActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_type_food);
+        setContentView(R.layout.activity_update_zone);
         init();
         Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("bundle");
-        edtUpdateTypeFoodId.setText(bundle.getString("idtypefood"));
-        edtUpdateFoodName.setText(bundle.getString("typefoodname"));
-        myRef = database.getReference("LoaiMon");
+        Bundle bundle = intent.getBundleExtra("bundlezone");
+        edtUpdateZoneId.setText(bundle.getString("idzonefood"));
+        edtUpdateZoneName.setText(bundle.getString("zonename"));
+        myRef = database.getReference("Khu");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -54,35 +54,32 @@ public class UpdateTypeFoodActivity extends AppCompatActivity {
 
             }
         });
-        btnUpdateTypeFood.setOnClickListener(new View.OnClickListener() {
+        btnUpdateZone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 update();
-                startActivityForResult(new Intent(UpdateTypeFoodActivity.this, UpdateFoodActivity.class), 333);
+                startActivityForResult(new Intent(UpdateZoneActivity.this, UpdateDiagramActivity.class), 333);
                 finish();
             }
         });
     }
-
     private void update() {
         Intent intent = getIntent();
-        position = intent.getIntExtra("positiontypefood", -1);
+        position = intent.getIntExtra("positionzone", -1);
         Log.e("hhh", position + "");
         Log.e("mossss", models.size() + "");
-        Model model = new Model(models.get(position).getIdzone(), edtUpdateFoodName.getText().toString());
+        Model model = new Model(models.get(position).getIdzone(), edtUpdateZoneName.getText().toString());
         myRef.child(models.get(position).getIdzone()).setValue(model);
         Intent intent1 = new Intent();
-        intent1.putExtra("modeltypefood", model);
-        intent1.putExtra("positiontypefood2", position);
+        intent1.putExtra("modelzone", model);
+        intent1.putExtra("positionzone2", position);
         setResult(-1, intent1);
         finish();
     }
-
-    private void init() {
-        btnUpdateTypeFood = (Button) findViewById(R.id.btn_update_type_food);
-        btnUbackToChosePubulum = (Button) findViewById(R.id.btn_uback_to_chose_pubulum);
-        edtUpdateTypeFoodId = (TextInputEditText) findViewById(R.id.edt_update_type_food_id);
-        edtUpdateFoodName = (TextInputEditText) findViewById(R.id.edt_update_food_name);
-
-    }
+    private void init(){
+        btnUpdateZone = (Button) findViewById(R.id.btn_update_zone);
+        btnBackUpdateDiagram = (Button) findViewById(R.id.btn_back_update_diagram);
+        edtUpdateZoneId = (TextInputEditText) findViewById(R.id.edt_update_zone_id);
+        edtUpdateZoneName = (TextInputEditText) findViewById(R.id.edt_update_zone_name);
+        }
 }

@@ -34,14 +34,14 @@ public class UpdateTypeFoodFragment extends Fragment {
     ListView listView;
     List<Model> models = new ArrayList<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("LoaiMon");
+    DatabaseReference myRef;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.update_type_food_fragment, container, false);
         btn_insert_type_food = view.findViewById(R.id.btn_insert_type_food);
         listView = view.findViewById(R.id.list);
-
+        myRef = database.getReference("LoaiMon");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -50,6 +50,10 @@ public class UpdateTypeFoodFragment extends Fragment {
                     Model model = modelDataSnapshot.getValue(Model.class);
                     models.add(model);
                 }
+                adapter = new NameAdapter(models, getActivity());
+                listView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -58,9 +62,7 @@ public class UpdateTypeFoodFragment extends Fragment {
             }
         });
 
-        adapter = new NameAdapter(models, getActivity());
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {

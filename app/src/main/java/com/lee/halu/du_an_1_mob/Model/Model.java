@@ -3,9 +3,23 @@ package com.lee.halu.du_an_1_mob.Model;
 import java.io.Serializable;
 
 public class Model implements Serializable {
-    String idzone,zonename;
+    String idzone,zonename,name2;
     public Model(){
 
+    }
+
+    public String getName2() {
+        return name2;
+    }
+
+    public void setName2(String name2) {
+        this.name2 = name2;
+    }
+
+    public Model(String idzone, String zonename, String name2) {
+        this.idzone = idzone;
+        this.zonename = zonename;
+        this.name2 = name2;
     }
 
     public Model(String idzone, String zonename) {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateTableActivity"
+    tools:context=".UpdateZoneActivity"
     android:background="@drawable/gradient_background">
     <ImageView
         android:id="@+id/imageView3"
@@ -21,24 +21,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_create_new_table"
+        android:id="@+id/btn_update_zone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
         android:layout_marginLeft="56dp"
         android:layout_marginRight="56dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="8dp"
-        android:text="Tạo bàn"
+        android:layout_marginTop="16dp"
+        android:text="Thay đổi"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_table"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"
         android:textColor="#fff"
         android:background="@drawable/gradient_background_button" />
 
     <Button
-        android:id="@+id/btn_back_to_create_zone"
+        android:id="@+id/btn_back_update_diagram"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
@@ -49,9 +48,9 @@
         android:text="Quay lại"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_create_new_table"
+        app:layout_constraintTop_toBottomOf="@+id/btn_update_zone"
         android:textColor="#fff"
-        android:background="@drawable/gradient_background_button"/>
+        android:background="@drawable/gradient_background_button" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -67,10 +66,10 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edt_id_table"
+            android:id="@+id/edt_update_zone_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mã bàn"
+            android:hint="Mã khu"
             android:backgroundTint="@color/chu"
             android:textColor="@color/chu"
             android:textColorHint="@color/chu"/>
@@ -90,28 +89,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edt_table_name"
+            android:id="@+id/edt_update_zone_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tên bàn"
+            android:hint="Tên khu"
             android:backgroundTint="@color/chu"
             android:textColor="@color/chu"
             android:textColorHint="@color/chu"/>
     </android.support.design.widget.TextInputLayout>
-
-    <Spinner
-        android:id="@+id/spinner_table"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="8dp"
-        android:autofillHints="Tên khu"
-        android:backgroundTint="@color/chu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
-
 </android.support.constraint.ConstraintLayout>

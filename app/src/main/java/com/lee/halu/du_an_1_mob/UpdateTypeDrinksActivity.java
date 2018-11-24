@@ -18,26 +18,25 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpdateTypeFoodActivity extends AppCompatActivity {
-    private Button btnUpdateTypeFood;
-    private Button btnUbackToChosePubulum;
-    private TextInputEditText edtUpdateTypeFoodId;
-    private TextInputEditText edtUpdateFoodName;
+public class UpdateTypeDrinksActivity extends AppCompatActivity {
+    private Button btnUpdateTypeDrinks;
+    private Button btnUpdateDrinks;
+    private TextInputEditText edtUpdateTypeDrinksId;
+    private TextInputEditText edtUpdateTypeDrinksName;
     final List<Model> models = new ArrayList<Model>();
     int position;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_type_food);
+        setContentView(R.layout.activity_update_type_drinks);
         init();
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra("bundle");
-        edtUpdateTypeFoodId.setText(bundle.getString("idtypefood"));
-        edtUpdateFoodName.setText(bundle.getString("typefoodname"));
-        myRef = database.getReference("LoaiMon");
+        edtUpdateTypeDrinksId.setText(bundle.getString("idtypedrinks"));
+        edtUpdateTypeDrinksName.setText(bundle.getString("typedrinksname"));
+        myRef = database.getReference("LoaiDoUong");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -54,35 +53,33 @@ public class UpdateTypeFoodActivity extends AppCompatActivity {
 
             }
         });
-        btnUpdateTypeFood.setOnClickListener(new View.OnClickListener() {
+        btnUpdateDrinks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 update();
-                startActivityForResult(new Intent(UpdateTypeFoodActivity.this, UpdateFoodActivity.class), 333);
+                startActivityForResult(new Intent(UpdateTypeDrinksActivity.this, UpdateDrinksActivity.class), 333);
                 finish();
             }
         });
     }
-
     private void update() {
         Intent intent = getIntent();
         position = intent.getIntExtra("positiontypefood", -1);
         Log.e("hhh", position + "");
         Log.e("mossss", models.size() + "");
-        Model model = new Model(models.get(position).getIdzone(), edtUpdateFoodName.getText().toString());
+        Model model = new Model(models.get(position).getIdzone(), edtUpdateTypeDrinksName.getText().toString());
         myRef.child(models.get(position).getIdzone()).setValue(model);
         Intent intent1 = new Intent();
-        intent1.putExtra("modeltypefood", model);
-        intent1.putExtra("positiontypefood2", position);
+        intent1.putExtra("modeltypedrinks", model);
+        intent1.putExtra("positiontypedrinks2", position);
         setResult(-1, intent1);
         finish();
     }
-
-    private void init() {
-        btnUpdateTypeFood = (Button) findViewById(R.id.btn_update_type_food);
-        btnUbackToChosePubulum = (Button) findViewById(R.id.btn_uback_to_chose_pubulum);
-        edtUpdateTypeFoodId = (TextInputEditText) findViewById(R.id.edt_update_type_food_id);
-        edtUpdateFoodName = (TextInputEditText) findViewById(R.id.edt_update_food_name);
+    private void init(){
+        btnUpdateTypeDrinks = (Button) findViewById(R.id.btn_update_type_drinks);
+        btnUpdateDrinks = (Button) findViewById(R.id.btn_update_drinks);
+        edtUpdateTypeDrinksId = (TextInputEditText) findViewById(R.id.edt_update_type_drinks_id);
+        edtUpdateTypeDrinksName = (TextInputEditText) findViewById(R.id.edt_update_type_drinks_name);
 
     }
 }

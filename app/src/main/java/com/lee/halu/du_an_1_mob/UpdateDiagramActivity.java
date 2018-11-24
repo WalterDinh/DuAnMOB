@@ -11,12 +11,7 @@ private UpdateZoneFragment updateZoneFragment;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_diagram);
-        updateTableFragment=new UpdateTableFragment();
-        updateZoneFragment=new UpdateZoneFragment();
-        android.support.v4.app.FragmentManager manager=getSupportFragmentManager();
-        FragmentTransaction ft = manager.beginTransaction();
-        ft.show(updateTableFragment);
-        ft.show(updateZoneFragment);
+
 
     }
 }
