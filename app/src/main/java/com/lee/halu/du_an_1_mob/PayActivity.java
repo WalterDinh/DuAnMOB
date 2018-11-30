@@ -7,24 +7,27 @@ import android.os.Bundle;
 import android.view.View;
 
 public class PayActivity extends AppCompatActivity {
-private  ListTypeFoodFragment listTypeFoodFragment;
-private    ListDrinkFragment listDrinkFragment;
-private ListFoodFragment listFoodFragment;
-boolean a=true;
+    private ListTypeFoodFragment listTypeFoodFragment;
+    private ListDrinkFragment listDrinkFragment;
+    private ListFoodFragment listFoodFragment;
+    boolean a = true;
+int position;
+String typename;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
-listDrinkFragment=new ListDrinkFragment();
-listFoodFragment=new ListFoodFragment();
-listTypeFoodFragment=new ListTypeFoodFragment();
+        listDrinkFragment = new ListDrinkFragment();
+        listFoodFragment = new ListFoodFragment();
+        listTypeFoodFragment = new ListTypeFoodFragment();
         hienthidoan();
     }
+
     public void drink(View view) {
         hienthidouong();
     }
 
-    private void hienthidouong () {
+    private void hienthidouong() {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
 
@@ -37,7 +40,9 @@ listTypeFoodFragment=new ListTypeFoodFragment();
         if (listFoodFragment.isAdded()) { //neu dang hien thi --> an no di
             ft.hide(listFoodFragment);
         }
-
+if(listTypeFoodFragment.isAdded()){
+            ft.hide(listTypeFoodFragment);
+}
         //sau khi thay doi fragment--> phai xac thuc
         ft.commit();
     }
@@ -45,6 +50,7 @@ listTypeFoodFragment=new ListTypeFoodFragment();
     public void food(View view) {
         hienthidoan();
     }
+
     public void typed(View view) {
         hienthuloaido();
     }
@@ -52,18 +58,18 @@ listTypeFoodFragment=new ListTypeFoodFragment();
     private void hienthuloaido() {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
-        if(a==true){
-        if (listTypeFoodFragment.isAdded()) { //neu co chi hien thi
-            ft.show(listTypeFoodFragment);
-            a=false;
-        } else { //khong co --> them vao
-            ft.add(R.id.container1, listTypeFoodFragment);
-        }}
-        else{
-    if (listTypeFoodFragment.isAdded()) { //neu dang hien thi --> an no di
-        ft.hide(listTypeFoodFragment);
-        a=true;
-    }
+        if (a == true) {
+            if (listTypeFoodFragment.isAdded()) { //neu co chi hien thi
+                ft.show(listTypeFoodFragment);
+                a = false;
+            } else { //khong co --> them vao
+                ft.add(R.id.container1, listTypeFoodFragment);
+            }
+        } else {
+            if (listTypeFoodFragment.isAdded()) { //neu dang hien thi --> an no di
+                ft.hide(listTypeFoodFragment);
+                a = true;
+            }
         }
         ft.commit();
 
@@ -82,7 +88,9 @@ listTypeFoodFragment=new ListTypeFoodFragment();
         if (listDrinkFragment.isAdded()) { //neu dang hien thi --> an no di
             ft.hide(listDrinkFragment);
         }
-
+        if(listTypeFoodFragment.isAdded()){
+            ft.hide(listTypeFoodFragment);
+        }
         //sau khi thay doi fragment--> phai xac thuc
         ft.commit();
     }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    >
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="@color/cam"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="@color/cam"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        tools:layout_editor_absoluteY="25dp" />
+
+    <Button
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="@color/cam"
+        app:layout_constraintEnd_toEndOf="@+id/include" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/cam"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/cam"
+        app:layout_constraintBottom_toTopOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loaị đồ ăn"
+        android:background="@drawable/gradient_background"
+        app:layout_constraintTop_toBottomOf="@+id/button9"
+        tools:layout_editor_absoluteX="161dp"
+        tools:ignore="MissingConstraints" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
+</android.support.constraint.ConstraintLayout>

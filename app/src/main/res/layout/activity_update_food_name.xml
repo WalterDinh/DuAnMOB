@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateDrinksActivity"
+    tools:context=".UpdateFoodNameActivity"
     android:background="@drawable/gradient_background">
 
     <ImageView
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_create_drinks"
+        android:id="@+id/btn_update_food2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
@@ -39,7 +39,7 @@
         android:background="@drawable/gradient_background_button"   />
 
     <Button
-        android:id="@+id/btn_back_to_update_drinks2"
+        android:id="@+id/btn_back_to_update_food2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
@@ -50,7 +50,7 @@
         android:text="Quay lại"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_create_drinks"
+        app:layout_constraintTop_toBottomOf="@+id/btn_update_food2"
         android:textColor="#fff"
         android:background="@drawable/gradient_background_button" />
 
@@ -67,11 +67,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/edt_create_id_drinks"
+        <TextView
+            android:id="@+id/txt_id_food_name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mã đồ uống"
+            android:hint="Mã món ăn"
             android:backgroundTint="@color/chu"
             android:textColor="@color/chu"
             android:textColorHint="@color/chu"/>
@@ -91,17 +91,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edt_create_drinks_name"
+            android:id="@+id/edt_update_food_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tên đồ uống"
+            android:hint="Tên món ăn"
             android:backgroundTint="@color/chu"
             android:textColor="@color/chu"
             android:textColorHint="@color/chu"/>
     </android.support.design.widget.TextInputLayout>
 
     <Spinner
-        android:id="@+id/spinner_create_drinks"
+        android:id="@+id/spinner_update_foodname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
@@ -126,10 +126,10 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_create_drinks">
+        app:layout_constraintTop_toBottomOf="@+id/spinner_update_foodname">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edt_create_drinks_price"
+            android:id="@+id/edy_update_food_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Giá"

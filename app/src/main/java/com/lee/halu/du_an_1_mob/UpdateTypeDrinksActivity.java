@@ -33,7 +33,7 @@ public class UpdateTypeDrinksActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_type_drinks);
         init();
         Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("bundle");
+        Bundle bundle = intent.getBundleExtra("bundletypedrinks");
         edtUpdateTypeDrinksId.setText(bundle.getString("idtypedrinks"));
         edtUpdateTypeDrinksName.setText(bundle.getString("typedrinksname"));
         myRef = database.getReference("LoaiDoUong");
@@ -53,7 +53,7 @@ public class UpdateTypeDrinksActivity extends AppCompatActivity {
 
             }
         });
-        btnUpdateDrinks.setOnClickListener(new View.OnClickListener() {
+        btnUpdateTypeDrinks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 update();
@@ -64,7 +64,7 @@ public class UpdateTypeDrinksActivity extends AppCompatActivity {
     }
     private void update() {
         Intent intent = getIntent();
-        position = intent.getIntExtra("positiontypefood", -1);
+        position = intent.getIntExtra("positiontypedrinks", -1);
         Log.e("hhh", position + "");
         Log.e("mossss", models.size() + "");
         Model model = new Model(models.get(position).getIdzone(), edtUpdateTypeDrinksName.getText().toString());

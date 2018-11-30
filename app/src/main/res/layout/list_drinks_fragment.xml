@@ -3,5 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background_button">
-
+<GridView
+    android:id="@+id/gridviewdrinks"
+    android:numColumns="auto_fit"
+    android:columnWidth="100dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></GridView>
 </android.support.constraint.ConstraintLayout>

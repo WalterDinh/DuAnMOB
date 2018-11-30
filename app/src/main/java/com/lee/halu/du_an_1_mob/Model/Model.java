@@ -4,6 +4,23 @@ import java.io.Serializable;
 
 public class Model implements Serializable {
     String idzone,zonename,name2;
+    int price;
+
+    public Model(String idzone, String zonename, String name2, int price) {
+        this.idzone = idzone;
+        this.zonename = zonename;
+        this.name2 = name2;
+        this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public Model(){
 
     }

@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lee.halu.du_an_1_mob.Adapter.NameAdapter;
+import com.lee.halu.du_an_1_mob.Adapter.SpinnerAdapter;
 import com.lee.halu.du_an_1_mob.Model.Model;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class CreateTableActivity extends AppCompatActivity {
     private TextInputEditText edtIdTable;
     private TextInputEditText edtTableName;
     private Spinner spinnerTable;
-    NameAdapter nameAdapter;
+    SpinnerAdapter nameAdapter;
     List<Model> models=new ArrayList<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
@@ -35,7 +36,7 @@ public class CreateTableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_table);
     init();
-        myRef = database.getReference("LoaiMon");
+        myRef = database.getReference("Khu");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -44,7 +45,7 @@ public class CreateTableActivity extends AppCompatActivity {
                     Model model = modelDataSnapshot.getValue(Model.class);
                     models.add(model);
                 }
-                nameAdapter=new NameAdapter(models,CreateTableActivity.this);
+                nameAdapter=new SpinnerAdapter(models,CreateTableActivity.this);
                 spinnerTable.setAdapter(nameAdapter);
             }
 

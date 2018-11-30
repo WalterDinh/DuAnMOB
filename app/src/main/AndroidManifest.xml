@@ -52,7 +52,10 @@
         <activity android:name=".PayActivity" />
         <activity android:name=".UpdateTypeFoodActivity" />
         <activity android:name=".UpdateZoneActivity" />
-        <activity android:name=".UpdateTypeDrinksActivity"></activity>
+        <activity android:name=".UpdateTypeDrinksActivity" />
+        <activity android:name=".UpdateTableActivity" />
+        <activity android:name=".UpdateDrinksNameActivity" />
+        <activity android:name=".UpdateFoodNameActivity"></activity>
     </application>
 
 </manifest>

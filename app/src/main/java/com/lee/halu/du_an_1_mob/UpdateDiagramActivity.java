@@ -5,13 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class UpdateDiagramActivity extends AppCompatActivity {
-private UpdateTableFragment  updateTableFragment;
-private UpdateZoneFragment updateZoneFragment;
+    String b;
+    int c;
+    boolean d=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_diagram);
-
 
     }
 }

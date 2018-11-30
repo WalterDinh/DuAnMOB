@@ -75,7 +75,6 @@ public class UpdateTypeFoodFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 final Intent intent=new Intent(getActivity(), CreateTypeFoodActivity.class);
-
                 startActivity(intent);
             }
         });
@@ -94,6 +93,7 @@ public class UpdateTypeFoodFragment extends Fragment {
                 Toast.makeText(getActivity(), "Đã xóa", Toast.LENGTH_SHORT).show();
                 delete(position);
                 models.remove(position);
+                models.clear();
                 adapter = new NameAdapter(models, getActivity());
                 listView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
