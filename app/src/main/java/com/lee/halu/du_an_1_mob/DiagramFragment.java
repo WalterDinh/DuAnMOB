@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.lee.halu.du_an_1_mob.Adapter.DiagramAdpater;
 import com.lee.halu.du_an_1_mob.Model.DiagramModel;
 
@@ -19,6 +21,8 @@ public class DiagramFragment extends Fragment {
     DiagramAdpater adpater;
     List<DiagramModel> models=new ArrayList<>();
     GridView gridViewl;
+ final FirebaseDatabase database=FirebaseDatabase.getInstance();
+  DatabaseReference myref;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //chuyen layout --> view

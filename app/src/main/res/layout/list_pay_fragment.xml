@@ -11,8 +11,9 @@
         android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_background"
+        android:background="@color/colorPrimary"
         android:text="Tên bàn"
+        android:textColor="@color/cam"
         app:layout_constraintBottom_toTopOf="@+id/toolbar3"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
@@ -71,7 +72,7 @@
     </LinearLayout>
 
     <include
-        android:layout_weight="4"
+        android:layout_weight="3.5"
         android:id="@+id/include4"
         layout="@layout/list_view"
         android:layout_width="match_parent"
@@ -79,7 +80,7 @@
        />
 
     <LinearLayout
-        android:layout_weight="1"
+        android:layout_weight="2.5"
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -97,7 +98,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_weight="2"
+    android:layout_weight="1"
     android:gravity="center">
     <TextView
         android:id="@+id/textView"
@@ -124,7 +125,6 @@
 </LinearLayout>
 
         <LinearLayout
-            android:layout_margin="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity=""

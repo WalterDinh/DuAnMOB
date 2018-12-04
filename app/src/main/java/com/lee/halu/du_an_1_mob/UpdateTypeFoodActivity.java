@@ -37,7 +37,7 @@ public class UpdateTypeFoodActivity extends AppCompatActivity {
         Bundle bundle = intent.getBundleExtra("bundle");
         edtUpdateTypeFoodId.setText(bundle.getString("idtypefood"));
         edtUpdateFoodName.setText(bundle.getString("typefoodname"));
-        myRef = database.getReference("LoaiMon");
+        myRef = database.getReference("User").child("adminhalu").child("loaiDoAn");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

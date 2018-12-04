@@ -37,7 +37,7 @@ public class UpdateZoneActivity extends AppCompatActivity {
         Bundle bundle = intent.getBundleExtra("bundlezone");
         edtUpdateZoneId.setText(bundle.getString("idzonefood"));
         edtUpdateZoneName.setText(bundle.getString("zonename"));
-        myRef = database.getReference("Khu");
+        myRef = database.getReference("User").child("adminhalu").child("khu");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -45,7 +45,6 @@ public class UpdateZoneActivity extends AppCompatActivity {
                         dataSnapshot.getChildren()) {
                     Model model = modelsDataSnapshot.getValue(Model.class);
                     models.add(model);
-                    Log.e("model", models.size() + "");
                 }
             }
 
@@ -66,8 +65,6 @@ public class UpdateZoneActivity extends AppCompatActivity {
     private void update() {
         Intent intent = getIntent();
         position = intent.getIntExtra("positionzone", -1);
-        Log.e("hhh", position + "");
-        Log.e("mossss", models.size() + "");
         Model model = new Model(models.get(position).getIdzone(), edtUpdateZoneName.getText().toString());
         myRef.child(models.get(position).getIdzone()).setValue(model);
         Intent intent1 = new Intent();

@@ -18,12 +18,7 @@ public class CreateDiagramActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_zone);
         init();
-        imgLogoCreateZone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(CreateDiagramActivity.this, ChoseCreateDataActivity.class));
-            }
-        });
+
         btnCreateZone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,20 +32,13 @@ public class CreateDiagramActivity extends AppCompatActivity {
 
             }
         });
-        btnBackUser2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(CreateDiagramActivity.this, ChoseCreateDataActivity.class));
-
-            }
-        });
     }
 
     private void init() {
-        imgLogoCreateZone = (ImageView) findViewById(R.id.img_logo_create_zone);
-        btnCreateZone = (Button) findViewById(R.id.btn_create_zone);
-        btnCreateTable = (Button) findViewById(R.id.btn_create_table);
-        btnBackUser2 = (Button) findViewById(R.id.btn_back_user2);
+        imgLogoCreateZone = findViewById(R.id.img_logo_create_zone);
+        btnCreateZone =  findViewById(R.id.btn_create_zone);
+        btnCreateTable =  findViewById(R.id.btn_create_table);
+        btnBackUser2 = findViewById(R.id.btn_back_user2);
 
     }
 }

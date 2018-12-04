@@ -35,7 +35,7 @@ public class ListDrinkFragment extends Fragment {
         gridView=view.findViewById(R.id.gridviewdrinks);
 
         Log.e("ssaa","hien");
-        myRef = database.getReference("TenDoUong");
+        myRef = database.getReference("User").child("adminhalu").child("doUong");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -54,12 +54,12 @@ public class ListDrinkFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ListPayFragment fragment=new ListPayFragment();
-                Bundle bundle=new Bundle();
+
                 String typename=models.get(position).getIdzone().toString();
-                bundle.putString("typename",typename);
+                Intent intent=new Intent(getActivity(),PayActivity.class);
+                intent.putExtra("typename",typename);
+                startActivity(intent);
                 Log.e("hoo","hoho");
-                fragment.setArguments(bundle);
             }
         });
         return view;

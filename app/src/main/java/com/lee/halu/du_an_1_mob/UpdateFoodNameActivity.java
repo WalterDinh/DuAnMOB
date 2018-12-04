@@ -48,7 +48,7 @@ public class UpdateFoodNameActivity extends AppCompatActivity {
         edtUpdateFoodName.setText(bundle.getString("foodname"));
         price=bundle.getInt("foodprice");
         edyUpdateFoodPrice.setText(price+"");
-        myRefs = database.getReference("LoaiMon");
+        myRef = database.getReference("User").child("adminhalu").child("loaiDoAn");
         myRefs.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

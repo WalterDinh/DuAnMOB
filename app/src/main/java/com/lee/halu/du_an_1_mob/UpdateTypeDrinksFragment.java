@@ -39,7 +39,7 @@ public class UpdateTypeDrinksFragment extends Fragment {
         View view = inflater.inflate(R.layout.update_type_drinks_fragment, container, false);
         btn_insert_type_drinks = view.findViewById(R.id.btn_insert_type_drinks);
         listView = view.findViewById(R.id.list);
-        myRef = database.getReference("LoaiDoUong");
+        myRef = database.getReference("User").child("adminhalu").child("loaiDoUong");
         Log.e("aaaaa", "nhan du lieu");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override

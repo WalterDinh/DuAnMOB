@@ -29,15 +29,16 @@ public class CreateFoodActivity extends AppCompatActivity {
     private Spinner spinnerFood;
     private TextInputEditText edtFoodPrice;
     SpinnerAdapter nameAdapter;
-    List<Model> models=new ArrayList<>();
+    List<Model> models = new ArrayList<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_food);
         init();
-        myRef = database.getReference("LoaiMon");
+        myRef = database.getReference("User").child("adminhalu").child("loaiDoAn");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -46,7 +47,7 @@ public class CreateFoodActivity extends AppCompatActivity {
                     Model model = modelDataSnapshot.getValue(Model.class);
                     models.add(model);
                 }
-                nameAdapter=new SpinnerAdapter(models,CreateFoodActivity.this);
+                nameAdapter = new SpinnerAdapter(models, CreateFoodActivity.this);
                 spinnerFood.setAdapter(nameAdapter);
             }
 
@@ -62,17 +63,19 @@ public class CreateFoodActivity extends AppCompatActivity {
                 final String idfood = edtIdFood.getText().toString();
                 final String foodname = edtFoodName.getText().toString();
                 final String price = edtFoodPrice.getText().toString();
-                final String typefoodname=models.get(spinnerFood.getSelectedItemPosition()).getZonename().toString();
-                DatabaseReference myRef1 = database.getReference("Mon");
+                final String typefoodname = models.get(spinnerFood.getSelectedItemPosition()).getZonename().toString();
+                DatabaseReference myRef1 = database.getReference("User").child("adminhalu").child("doAn");
+
                 String foodsids = myRef1.child(idfood).getKey();
-                Model model = new Model(idfood, foodname,typefoodname,Integer.parseInt(price));
+                Model model = new Model(idfood, foodname, typefoodname, Integer.parseInt(price));
                 myRef1.child(foodsids).setValue(model);
                 startActivity(new Intent(CreateFoodActivity.this, UpdateFoodActivity.class));
 
             }
         });
     }
-    private void init(){
+
+    private void init() {
         imageView3 = (ImageView) findViewById(R.id.imageView3);
         btnCreateFood = (Button) findViewById(R.id.btn_create_food);
         btnBackToCreateDiagram2 = (Button) findViewById(R.id.btn_back_to_create_diagram2);

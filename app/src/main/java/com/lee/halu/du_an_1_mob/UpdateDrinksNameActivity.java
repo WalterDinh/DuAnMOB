@@ -49,7 +49,7 @@ public class UpdateDrinksNameActivity extends AppCompatActivity {
         edtUpdateDrinksName.setText(bundle.getString("drinksname"));
         price=bundle.getInt("drinksprice");
         edyUpdateDrinksPrice.setText(price+"");
-        myRefs = database.getReference("LoaiDoUong");
+        myRefs = database.getReference("User").child("adminhalu").child("loaiDoUong");
         myRefs.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -71,7 +71,7 @@ public class UpdateDrinksNameActivity extends AppCompatActivity {
         btnUpdateDrinks2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRef = database.getReference("TenDoUong");
+                myRefs = database.getReference("User").child("adminhalu").child("doUong");
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

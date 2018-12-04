@@ -22,26 +22,27 @@ public class ListPayFragment extends Fragment {
     PayAdapter payAdapter;
     ListView listView;
     String demo;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //chuyen layout --> view
         View view = inflater.inflate(R.layout.list_pay_fragment,
                 container, false);
-        Bundle bundle=this.getArguments();
-        if(bundle!=null){
-            demo=bundle.getString("typename");
+        listView = view.findViewById(R.id.list);
+Bundle bundle=this.getArguments();
+if(bundle!=null){
+    payModels.add(new PayModel( ((PayActivity)getActivity()).typename, 20000, 20000, 2));
 
-        }
-listView=view.findViewById(R.id.list);
-payModels.add(new PayModel("caphe",20000,20000,1));
-payAdapter=new PayAdapter(payModels,getActivity());
-listView.setAdapter(payAdapter);
-listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+}
 
-    }
-});
+        payAdapter = new PayAdapter(payModels, getActivity());
+        listView.setAdapter(payAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
         return view;
     }
 }

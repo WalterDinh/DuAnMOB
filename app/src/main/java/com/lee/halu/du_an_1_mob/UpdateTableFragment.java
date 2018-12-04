@@ -39,7 +39,7 @@ public class UpdateTableFragment extends Fragment {
         btn_insert_table = view.findViewById(R.id.btn_insert_table);
         listView = view.findViewById(R.id.list);
 
-        myRef = database.getReference("Ban");
+        myRef = database.getReference("User").child("adminhalu").child("ban");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

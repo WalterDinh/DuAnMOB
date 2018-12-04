@@ -21,7 +21,9 @@ public class ChoseCreatePubulumActivity extends AppCompatActivity {
         imgLogoChosePubulum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChoseCreatePubulumActivity.this,HomeActivity.class));
+                Intent intent = new Intent(ChoseCreatePubulumActivity.this,HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         });
         btnCreateFood.setOnClickListener(new View.OnClickListener() {

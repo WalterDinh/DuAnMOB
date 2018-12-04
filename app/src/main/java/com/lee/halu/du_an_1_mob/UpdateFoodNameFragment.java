@@ -38,7 +38,7 @@ public class UpdateFoodNameFragment extends Fragment{
         View view = inflater.inflate(R.layout.update_food_name_fragment, container, false);
         btn_insert_food=view.findViewById(R.id.btn_insert_food);
         listView = view.findViewById(R.id.list);
-        myRef = database.getReference("Mon");
+        myRef = database.getReference("User").child("adminhalu").child("doAn");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

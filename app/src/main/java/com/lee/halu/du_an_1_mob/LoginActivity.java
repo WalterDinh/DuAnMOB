@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,6 +33,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.lee.halu.du_an_1_mob.Model.UserModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,22 +57,68 @@ public class LoginActivity extends AppCompatActivity {
     private AutoCompleteTextView email;
     private EditText password;
     private Button emailSignInButton;
-
+    private TextView signup;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef;
+    UserModel userModel;
+    List<UserModel> userModels = new ArrayList<>();
+     String userid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loginactivity);
 
+        Log.e("SBC","LOGIN");
         init();
+        email.setText("adminhalu");
+        password.setText("17122017");
+        userid=email.getText().toString();
         emailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                final String username = email.getText().toString();
+                final String passwords = password.getText().toString();
+                myRef = database.getReference("User");
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        Log.e("SBC","LOGIN");
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            userModel = snapshot.getValue(UserModel.class);
+                            userModels.add(userModel);
+                            for (int i = 0; i < userModels.size(); i++) {
+                                if (username.equals(userModels.get(i).getUsername().toString())
+                                        && passwords.equals(userModels.get(i).getPassword())) {
+                                    startActivity(new Intent(LoginActivity.this, HelloActivity.class));
+                                    finish();
+                                    break;
+                                } else {
+                                    Toast.makeText(LoginActivity.this, "Tên đăng nhập hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+        signup.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, CreateUserActivity.class));
             }
         });
     }
 
     private void init() {
+        signup = findViewById(R.id.txt_sign_up);
         loginProgress = (ProgressBar) findViewById(R.id.login_progress);
         imageView = (ImageView) findViewById(R.id.imageView);
         emailLoginForm = (LinearLayout) findViewById(R.id.email_login_form);

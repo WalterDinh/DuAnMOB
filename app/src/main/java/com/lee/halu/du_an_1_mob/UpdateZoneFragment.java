@@ -39,7 +39,7 @@ public class UpdateZoneFragment extends Fragment {
         View view = inflater.inflate(R.layout.update_zonef_ragment, container, false);
         btn_insert_zone = view.findViewById(R.id.btn_insert_zone);
         listView = view.findViewById(R.id.list);
-        myRef = database.getReference("Khu");
+        myRef = database.getReference("User").child("adminhalu").child("khu");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -59,7 +59,6 @@ public class UpdateZoneFragment extends Fragment {
             }
         });
 
-        Toast.makeText(getActivity(), "asdasdas", Toast.LENGTH_SHORT).show();
         btn_insert_zone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,9 +68,8 @@ public class UpdateZoneFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((UpdateDiagramActivity) getActivity()).b=models.get(position).getZonename().toString();
-                Log.e("sdd",((UpdateDiagramActivity) getActivity()).b);
-                ((UpdateDiagramActivity) getActivity()).d=false;
+                ((UpdateDiagramActivity) getActivity()).b = models.get(position).getZonename().toString();
+                ((UpdateDiagramActivity) getActivity()).d = false;
             }
         });
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {

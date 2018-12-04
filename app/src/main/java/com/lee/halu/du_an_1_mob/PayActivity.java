@@ -1,9 +1,12 @@
 package com.lee.halu.du_an_1_mob;
 
+import android.content.BroadcastReceiver;
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class PayActivity extends AppCompatActivity {
@@ -11,8 +14,10 @@ public class PayActivity extends AppCompatActivity {
     private ListDrinkFragment listDrinkFragment;
     private ListFoodFragment listFoodFragment;
     boolean a = true;
-int position;
-String typename;
+
+    int position;
+    String typename;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +26,11 @@ String typename;
         listFoodFragment = new ListFoodFragment();
         listTypeFoodFragment = new ListTypeFoodFragment();
         hienthidoan();
+        Intent intent=getIntent();
+        typename=intent.getStringExtra("typename");
+     Intent intent1=new Intent("haha");
+     intent1.putExtra("type",typename);
+     sendBroadcast(intent1);
     }
 
     public void drink(View view) {
@@ -39,10 +49,9 @@ String typename;
 
         if (listFoodFragment.isAdded()) { //neu dang hien thi --> an no di
             ft.hide(listFoodFragment);
-        }
-if(listTypeFoodFragment.isAdded()){
+        } else if (listTypeFoodFragment.isAdded()) {
             ft.hide(listTypeFoodFragment);
-}
+        }
         //sau khi thay doi fragment--> phai xac thuc
         ft.commit();
     }
@@ -87,8 +96,7 @@ if(listTypeFoodFragment.isAdded()){
 
         if (listDrinkFragment.isAdded()) { //neu dang hien thi --> an no di
             ft.hide(listDrinkFragment);
-        }
-        if(listTypeFoodFragment.isAdded()){
+        } else if (listTypeFoodFragment.isAdded()) {
             ft.hide(listTypeFoodFragment);
         }
         //sau khi thay doi fragment--> phai xac thuc

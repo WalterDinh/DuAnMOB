@@ -10,6 +10,18 @@ public class HelloActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hello);
-        Intent intent=new Intent(this,ListOrderActivity.class);
+        Thread thread = new Thread();
+        thread.start();
+        try {
+            Thread.sleep(5000);
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+    } catch(
+    InterruptedException e)
+
+    {
+        e.printStackTrace();
     }
+}
+
 }

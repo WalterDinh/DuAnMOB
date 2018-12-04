@@ -17,6 +17,7 @@ public class CreateTypeFoodActivity extends AppCompatActivity {
     private Button btnBackToChosePubulum;
     private TextInputEditText edtTypeFoodId;
     private TextInputEditText edtFoodName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,13 +27,14 @@ public class CreateTypeFoodActivity extends AppCompatActivity {
         btnCreateTypeFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    final String idfood = edtTypeFoodId.getText().toString();
-                    final String foodname = edtFoodName.getText().toString();
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("LoaiMon");
-                    String foodids = myRef.child(idfood).getKey();
-                    Model model = new Model(idfood, foodname);
-                    myRef.child(foodids).setValue(model);
+                final String idfood = edtTypeFoodId.getText().toString();
+                final String foodname = edtFoodName.getText().toString();
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("User").child("adminhalu").child("loaiDoAn");
+
+                String foodids = myRef.child(idfood).getKey();
+                Model model = new Model(idfood, foodname);
+                myRef.child(foodids).setValue(model);
                 startActivity(new Intent(CreateTypeFoodActivity.this, UpdateFoodActivity.class));
 
             }

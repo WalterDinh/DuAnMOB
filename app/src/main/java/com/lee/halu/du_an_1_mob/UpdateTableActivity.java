@@ -47,7 +47,7 @@ public class UpdateTableActivity extends AppCompatActivity {
         Bundle bundle = intent.getBundleExtra("bundletable");
         edtUpdateIdTable.setText(bundle.getString("idtable"));
         edtUpdateTableName.setText(bundle.getString("tablename"));
-        myRefs = database.getReference("Khu");
+        myRef = database.getReference("User").child("adminhalu").child("khu");
         myRefs.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -65,7 +65,7 @@ public class UpdateTableActivity extends AppCompatActivity {
 
             }
         });
-        myRef = database.getReference("Ban");
+        myRef = database.getReference("User").child("adminhalu").child("ban");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
