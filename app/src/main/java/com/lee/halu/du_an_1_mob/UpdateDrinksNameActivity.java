@@ -113,12 +113,12 @@ public class UpdateDrinksNameActivity extends AppCompatActivity {
 
     private void init(){
 
-        btnUpdateDrinks2 = (Button) findViewById(R.id.btn_update_drinks2);
-        btnBackToUpdateDrinks2 = (Button) findViewById(R.id.btn_back_to_update_drinks2);
-        txtIdDrinksName = (TextView) findViewById(R.id.txt_id_drinks_name);
-        edtUpdateDrinksName = (TextInputEditText) findViewById(R.id.edt_update_drinks_name);
-        spinnerUpdateDrinks = (Spinner) findViewById(R.id.spinner_update_drinks);
-        edyUpdateDrinksPrice = (TextInputEditText) findViewById(R.id.edy_update_drinks_price);
+        btnUpdateDrinks2 =  findViewById(R.id.btn_update_drinks2);
+        btnBackToUpdateDrinks2 =  findViewById(R.id.btn_back_to_update_drinks2);
+        txtIdDrinksName =  findViewById(R.id.txt_id_drinks_name);
+        edtUpdateDrinksName =  findViewById(R.id.edt_update_drinks_name);
+        spinnerUpdateDrinks =  findViewById(R.id.spinner_update_drinks);
+        edyUpdateDrinksPrice =  findViewById(R.id.edy_update_drinks_price);
 
     }
 }

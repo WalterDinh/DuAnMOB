@@ -40,7 +40,6 @@ public class UpdateTypeDrinksFragment extends Fragment {
         btn_insert_type_drinks = view.findViewById(R.id.btn_insert_type_drinks);
         listView = view.findViewById(R.id.list);
         myRef = database.getReference("User").child("adminhalu").child("loaiDoUong");
-        Log.e("aaaaa", "nhan du lieu");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

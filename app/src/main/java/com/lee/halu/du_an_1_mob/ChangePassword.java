@@ -29,12 +29,12 @@ public class ChangePassword extends AppCompatActivity {
         });
     }
     private void init(){
-        imageView3 = (ImageView) findViewById(R.id.imageView3);
-        btnChangepassword2 = (Button) findViewById(R.id.btn_changepassword2);
-        btnBackchangepassword = (Button) findViewById(R.id.btn_backchangepassword);
-        edtOldPassword = (TextInputEditText) findViewById(R.id.edt_old_password);
-        edtNewPassword = (TextInputEditText) findViewById(R.id.edt_new_password);
-        edtRepassword = (TextInputEditText) findViewById(R.id.edt_repassword);
+        imageView3 =  findViewById(R.id.imageView3);
+        btnChangepassword2 =  findViewById(R.id.btn_changepassword2);
+        btnBackchangepassword =  findViewById(R.id.btn_backchangepassword);
+        edtOldPassword =  findViewById(R.id.edt_old_password);
+        edtNewPassword =  findViewById(R.id.edt_new_password);
+        edtRepassword =  findViewById(R.id.edt_repassword);
 
     }
 }

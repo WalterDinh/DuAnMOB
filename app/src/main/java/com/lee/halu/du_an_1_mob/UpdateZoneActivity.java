@@ -74,9 +74,9 @@ public class UpdateZoneActivity extends AppCompatActivity {
         finish();
     }
     private void init(){
-        btnUpdateZone = (Button) findViewById(R.id.btn_update_zone);
-        btnBackUpdateDiagram = (Button) findViewById(R.id.btn_back_update_diagram);
-        edtUpdateZoneId = (TextInputEditText) findViewById(R.id.edt_update_zone_id);
-        edtUpdateZoneName = (TextInputEditText) findViewById(R.id.edt_update_zone_name);
+        btnUpdateZone =  findViewById(R.id.btn_update_zone);
+        btnBackUpdateDiagram =  findViewById(R.id.btn_back_update_diagram);
+        edtUpdateZoneId =  findViewById(R.id.edt_update_zone_id);
+        edtUpdateZoneName =  findViewById(R.id.edt_update_zone_name);
         }
 }

@@ -17,6 +17,8 @@ public class CreateTypeFoodActivity extends AppCompatActivity {
     private Button btnBackToChosePubulum;
     private TextInputEditText edtTypeFoodId;
     private TextInputEditText edtFoodName;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +31,12 @@ public class CreateTypeFoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String idfood = edtTypeFoodId.getText().toString();
                 final String foodname = edtFoodName.getText().toString();
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("User").child("adminhalu").child("loaiDoAn");
-
+                myRef = database.getReference("User").child("adminhalu").child("loaiDoAn");
                 String foodids = myRef.child(idfood).getKey();
                 Model model = new Model(idfood, foodname);
                 myRef.child(foodids).setValue(model);
                 startActivity(new Intent(CreateTypeFoodActivity.this, UpdateFoodActivity.class));
+                finish();
 
             }
         });
@@ -43,15 +44,16 @@ public class CreateTypeFoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CreateTypeFoodActivity.this, UpdateFoodActivity.class));
+                finish();
             }
         });
     }
 
     public void init() {
-        btnCreateTypeFood = (Button) findViewById(R.id.btn_create_type_food);
-        btnBackToChosePubulum = (Button) findViewById(R.id.btn_back_to_chose_pubulum);
-        edtTypeFoodId = (TextInputEditText) findViewById(R.id.edt_type_food_id);
-        edtFoodName = (TextInputEditText) findViewById(R.id.edt_food_name);
+        btnCreateTypeFood = findViewById(R.id.btn_create_type_food);
+        btnBackToChosePubulum = findViewById(R.id.btn_back_to_chose_pubulum);
+        edtTypeFoodId = findViewById(R.id.edt_type_food_id);
+        edtFoodName = findViewById(R.id.edt_food_name);
 
     }
 }

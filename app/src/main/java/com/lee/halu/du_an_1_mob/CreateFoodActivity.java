@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreateFoodActivity extends AppCompatActivity {
-    private ImageView imageView3;
     private Button btnCreateFood;
     private Button btnBackToCreateDiagram2;
     private TextInputEditText edtIdFood;
@@ -76,13 +75,12 @@ public class CreateFoodActivity extends AppCompatActivity {
     }
 
     private void init() {
-        imageView3 = (ImageView) findViewById(R.id.imageView3);
-        btnCreateFood = (Button) findViewById(R.id.btn_create_food);
-        btnBackToCreateDiagram2 = (Button) findViewById(R.id.btn_back_to_create_diagram2);
-        edtIdFood = (TextInputEditText) findViewById(R.id.edt_id_food);
-        edtFoodName = (TextInputEditText) findViewById(R.id.edt_food_name);
-        spinnerFood = (Spinner) findViewById(R.id.spinner_food);
-        edtFoodPrice = (TextInputEditText) findViewById(R.id.edt_food_frice);
+        btnCreateFood =  findViewById(R.id.btn_create_food);
+        btnBackToCreateDiagram2 =  findViewById(R.id.btn_back_to_create_diagram2);
+        edtIdFood =  findViewById(R.id.edt_id_food);
+        edtFoodName =  findViewById(R.id.edt_food_name);
+        spinnerFood =  findViewById(R.id.spinner_food);
+        edtFoodPrice =  findViewById(R.id.edt_food_frice);
 
     }
 }

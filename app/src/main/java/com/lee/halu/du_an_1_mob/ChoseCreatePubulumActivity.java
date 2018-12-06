@@ -49,10 +49,10 @@ public class ChoseCreatePubulumActivity extends AppCompatActivity {
         });
     }
     private void init(){
-        imgLogoChosePubulum = (ImageView) findViewById(R.id.img_logo_chose_pubulum);
-        btnCreateFood = (Button) findViewById(R.id.btn_create_food);
-        btnCreateDrinks = (Button) findViewById(R.id.btn_create_drinks);
-        btnBackChossseCreateData = (Button) findViewById(R.id.btn_back_chossse_create_data);
+        imgLogoChosePubulum =  findViewById(R.id.img_logo_chose_pubulum);
+        btnCreateFood =  findViewById(R.id.btn_create_food);
+        btnCreateDrinks =  findViewById(R.id.btn_create_drinks);
+        btnBackChossseCreateData =  findViewById(R.id.btn_back_chossse_create_data);
 
     }
 }

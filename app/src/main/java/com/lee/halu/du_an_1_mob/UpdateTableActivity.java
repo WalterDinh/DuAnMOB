@@ -109,11 +109,11 @@ public class UpdateTableActivity extends AppCompatActivity {
     }
 
     private void  init(){
-        btnUpdateTable = (Button) findViewById(R.id.btn_update_table);
-        btnBackToCreateZones = (Button) findViewById(R.id.btn_back_to_create_zones);
-        edtUpdateIdTable = (TextView) findViewById(R.id.edt_update_id_table);
-        edtUpdateTableName = (TextInputEditText) findViewById(R.id.edt_update_table_name);
-        spinnerUpdateTable = (Spinner) findViewById(R.id.spinner_update_table);
+        btnUpdateTable =  findViewById(R.id.btn_update_table);
+        btnBackToCreateZones =  findViewById(R.id.btn_back_to_create_zones);
+        edtUpdateIdTable =  findViewById(R.id.edt_update_id_table);
+        edtUpdateTableName =  findViewById(R.id.edt_update_table_name);
+        spinnerUpdateTable =  findViewById(R.id.spinner_update_table);
 
     }
 }

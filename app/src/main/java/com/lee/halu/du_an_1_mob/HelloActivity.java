@@ -13,9 +13,8 @@ public class HelloActivity extends AppCompatActivity {
         Thread thread = new Thread();
         thread.start();
         try {
-            Thread.sleep(5000);
+            Thread.sleep(8000);
             startActivity(new Intent(this, HomeActivity.class));
-            finish();
     } catch(
     InterruptedException e)
 

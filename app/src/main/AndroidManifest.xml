@@ -38,7 +38,6 @@
         <activity android:name=".UserActivity" />
         <activity android:name=".ChangePassword" />
         <activity android:name=".ChoseCreateDataActivity" />
-        <activity android:name=".CreateDiagramActivity" />
         <activity android:name=".CreateZoneActivity" />
         <activity android:name=".CreateTableActivity" />
         <activity android:name=".CreateTypeDrinksActivity" />

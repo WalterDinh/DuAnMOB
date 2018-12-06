@@ -23,18 +23,20 @@ import java.util.List;
 
 public class ListDrinkFragment extends Fragment {
     ItemOrderAdapter itemOrderAdapter;
-    List<Model> models=new ArrayList<>();
+    List<Model> models = new ArrayList<>();
     GridView gridView;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
+    int dem = 0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //chuyen layout --> view
         View view = inflater.inflate(R.layout.list_drinks_fragment,
                 container, false);
-        gridView=view.findViewById(R.id.gridviewdrinks);
+        gridView = view.findViewById(R.id.gridviewdrinks);
 
-        Log.e("ssaa","hien");
+        Log.e("ssaa", "hien");
         myRef = database.getReference("User").child("adminhalu").child("doUong");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -43,23 +45,28 @@ public class ListDrinkFragment extends Fragment {
                         dataSnapshot.getChildren()) {
                     Model model = modelDataSnapshot.getValue(Model.class);
                     models.add(model);
-                    Log.e("models",models.size()+"");
-                    }
-                itemOrderAdapter=new ItemOrderAdapter(models,getActivity());
-                gridView.setAdapter(itemOrderAdapter);
+                    Log.e("models", models.size() + "");
                 }
-                @Override
-            public void onCancelled(DatabaseError databaseError) { }
+                itemOrderAdapter = new ItemOrderAdapter(models, getActivity());
+                gridView.setAdapter(itemOrderAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
         });
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String name = models.get(position).getZonename().toString();
+                int price = models.get(position).getPrice();
+                Intent intent2
+                        = new Intent("PAY");
+                intent2.putExtra("drinksname", name);
+                intent2.putExtra("drinksprice", price);
+                getActivity().sendBroadcast(intent2);
 
-                String typename=models.get(position).getIdzone().toString();
-                Intent intent=new Intent(getActivity(),PayActivity.class);
-                intent.putExtra("typename",typename);
-                startActivity(intent);
-                Log.e("hoo","hoho");
+                Log.e("hoo", "hoho");
             }
         });
         return view;

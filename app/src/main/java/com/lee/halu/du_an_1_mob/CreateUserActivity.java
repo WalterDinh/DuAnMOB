@@ -104,11 +104,11 @@ public class CreateUserActivity extends AppCompatActivity {
     }
 
     private void init() {
-        btnChangepassword2 = (Button) findViewById(R.id.btn_create_user);
-        btnBackchangepassword = (Button) findViewById(R.id.btn_back_login);
-        edtCreateUser = (TextInputEditText) findViewById(R.id.edt_create_user);
-        edtCreatePassword = (TextInputEditText) findViewById(R.id.edt_create_password);
-        edtRepassword2 = (TextInputEditText) findViewById(R.id.edt_repassword2);
+        btnChangepassword2 =  findViewById(R.id.btn_create_user);
+        btnBackchangepassword =  findViewById(R.id.btn_back_login);
+        edtCreateUser =  findViewById(R.id.edt_create_user);
+        edtCreatePassword =  findViewById(R.id.edt_create_password);
+        edtRepassword2 =  findViewById(R.id.edt_repassword2);
 
     }
 }

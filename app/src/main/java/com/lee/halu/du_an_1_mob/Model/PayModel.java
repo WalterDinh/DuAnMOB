@@ -3,40 +3,36 @@ package com.lee.halu.du_an_1_mob.Model;
 import java.io.Serializable;
 
 public class PayModel implements Serializable{
-    String name;
-    double price,pay;
+    String names;
+    int price;
     int amount;
+int pay;
+    public PayModel() {
+    }
 
-    public PayModel(String name, double price, double pay, int amount) {
-        this.name = name;
+    public PayModel(String name, int price, int amount, int pay) {
+        this.names = name;
         this.price = price;
-        this.pay = pay;
         this.amount = amount;
+        this.pay=pay;
     }
 
     public String getName() {
-        return name;
+        return names;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.names = name;
     }
 
-    public Double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public Double getPay() {
-        return pay;
-    }
-
-    public void setPay(Double pay) {
-        this.pay = pay;
-    }
 
     public int getAmount() {
         return amount;

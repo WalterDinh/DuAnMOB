@@ -14,10 +14,6 @@ public class PayActivity extends AppCompatActivity {
     private ListDrinkFragment listDrinkFragment;
     private ListFoodFragment listFoodFragment;
     boolean a = true;
-
-    int position;
-    String typename;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +22,7 @@ public class PayActivity extends AppCompatActivity {
         listFoodFragment = new ListFoodFragment();
         listTypeFoodFragment = new ListTypeFoodFragment();
         hienthidoan();
-        Intent intent=getIntent();
-        typename=intent.getStringExtra("typename");
-     Intent intent1=new Intent("haha");
-     intent1.putExtra("type",typename);
-     sendBroadcast(intent1);
+
     }
 
     public void drink(View view) {

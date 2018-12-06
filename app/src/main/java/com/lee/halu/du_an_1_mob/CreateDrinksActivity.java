@@ -74,12 +74,12 @@ public class CreateDrinksActivity extends AppCompatActivity {
     }
 
     private void init() {
-        edtCreateDrinksPrice = (TextInputEditText) findViewById(R.id.edt_create_drinks_price);
-        btnCreateDrinks = (Button) findViewById(R.id.btn_create_drinks);
-        btnBackToUpdateDrinks2 = (Button) findViewById(R.id.btn_back_to_update_drinks2);
-        edtCreateIdDrinks = (TextInputEditText) findViewById(R.id.edt_create_id_drinks);
-        edtCreateDrinksName = (TextInputEditText) findViewById(R.id.edt_create_drinks_name);
-        spinnerCreateDrinks = (Spinner) findViewById(R.id.spinner_create_drinks);
+        edtCreateDrinksPrice =  findViewById(R.id.edt_create_drinks_price);
+        btnCreateDrinks =  findViewById(R.id.btn_create_drinks);
+        btnBackToUpdateDrinks2 =  findViewById(R.id.btn_back_to_update_drinks2);
+        edtCreateIdDrinks =  findViewById(R.id.edt_create_id_drinks);
+        edtCreateDrinksName =  findViewById(R.id.edt_create_drinks_name);
+        spinnerCreateDrinks =  findViewById(R.id.spinner_create_drinks);
 
     }
 }

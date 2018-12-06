@@ -45,10 +45,10 @@ public class CreateTypeDrinksActivity extends AppCompatActivity {
     }
 
     private void init() {
-        btnCreateTypeDrinks = (Button) findViewById(R.id.btn_create_type_drinks);
-        btnBackToUpdateDrinks = (Button) findViewById(R.id.btn_back_to_update_drinks);
-        edtTypeDrinksId = (TextInputEditText) findViewById(R.id.edt_type_drinks_id);
-        edtDrinksName = (TextInputEditText) findViewById(R.id.edt_drinks_name);
+        btnCreateTypeDrinks =  findViewById(R.id.btn_create_type_drinks);
+        btnBackToUpdateDrinks =  findViewById(R.id.btn_back_to_update_drinks);
+        edtTypeDrinksId =  findViewById(R.id.edt_type_drinks_id);
+        edtDrinksName =  findViewById(R.id.edt_drinks_name);
 
     }
 }

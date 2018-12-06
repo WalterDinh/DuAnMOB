@@ -11,7 +11,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ChoseCreateDataActivity extends AppCompatActivity {
-    private ImageView imgLogoCreateData;
     private Button btnCreateDiagram;
     private Button btnCreateData;
     private Button btnBackUser;
@@ -44,7 +43,6 @@ public class ChoseCreateDataActivity extends AppCompatActivity {
         });
     }
     private void init(){
-        imgLogoCreateData = (ImageView) findViewById(R.id.img_logo_create_date);
         btnCreateDiagram = (Button) findViewById(R.id.btn_create_diagram);
         btnCreateData = (Button) findViewById(R.id.btn_create_date);
         btnBackUser = (Button) findViewById(R.id.btn_back_user);

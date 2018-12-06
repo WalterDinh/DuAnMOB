@@ -72,11 +72,11 @@ public class CreateTableActivity extends AppCompatActivity {
     }
 
     private void init() {
-        btnCreateNewTable = (Button) findViewById(R.id.btn_create_new_table);
-        btnBackToCreateZone = (Button) findViewById(R.id.btn_back_to_create_zone);
-        edtIdTable = (TextInputEditText) findViewById(R.id.edt_id_table);
-        edtTableName = (TextInputEditText) findViewById(R.id.edt_table_name);
-        spinnerTable = (Spinner) findViewById(R.id.spinner_table);
+        btnCreateNewTable =  findViewById(R.id.btn_create_new_table);
+        btnBackToCreateZone =  findViewById(R.id.btn_back_to_create_zone);
+        edtIdTable =  findViewById(R.id.edt_id_table);
+        edtTableName =  findViewById(R.id.edt_table_name);
+        spinnerTable =  findViewById(R.id.spinner_table);
 
     }
 }

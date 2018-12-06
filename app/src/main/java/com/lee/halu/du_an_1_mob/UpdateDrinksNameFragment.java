@@ -49,6 +49,7 @@ public class UpdateDrinksNameFragment extends Fragment {
                     Model model = modelDataSnapshot.getValue(Model.class);
                     models.add(model);
                     }
+
                 Log.e("ssss", models.size() + "");
                 adapter = new NameAdapter(models, getActivity());
                 listView.setAdapter(adapter);

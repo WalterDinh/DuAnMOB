@@ -113,12 +113,12 @@ public class UpdateFoodNameActivity extends AppCompatActivity {
 
     private void init(){
 
-        btnUpdateFood2 = (Button) findViewById(R.id.btn_update_food2);
-        btnBackToUpdateFood2 = (Button) findViewById(R.id.btn_back_to_update_food2);
-        txtIdFoodName = (TextView) findViewById(R.id.txt_id_food_name2);
-        edtUpdateFoodName = (TextInputEditText) findViewById(R.id.edt_update_food_name);
-        spinnerUpdateFoodname = (Spinner) findViewById(R.id.spinner_update_foodname);
-        edyUpdateFoodPrice = (TextInputEditText) findViewById(R.id.edy_update_food_price);
+        btnUpdateFood2 =  findViewById(R.id.btn_update_food2);
+        btnBackToUpdateFood2 =  findViewById(R.id.btn_back_to_update_food2);
+        txtIdFoodName =  findViewById(R.id.txt_id_food_name2);
+        edtUpdateFoodName =  findViewById(R.id.edt_update_food_name);
+        spinnerUpdateFoodname =  findViewById(R.id.spinner_update_foodname);
+        edyUpdateFoodPrice =  findViewById(R.id.edy_update_food_price);
 
     }
 }

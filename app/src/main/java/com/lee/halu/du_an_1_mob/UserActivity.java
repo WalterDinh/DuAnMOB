@@ -36,9 +36,9 @@ public class UserActivity extends AppCompatActivity {
         });
     }
     private void init(){
-        imageView3 = (ImageView) findViewById(R.id.imageUser);
-        btnChangepassword = (Button) findViewById(R.id.btn_changepassword);
-        btnCreate = (Button) findViewById(R.id.btn_create);
+        imageView3 =  findViewById(R.id.imageUser);
+        btnChangepassword =  findViewById(R.id.btn_changepassword);
+        btnCreate =  findViewById(R.id.btn_create);
 
     }
 }

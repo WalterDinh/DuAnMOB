@@ -79,10 +79,10 @@ public class UpdateTypeFoodActivity extends AppCompatActivity {
     }
 
     private void init() {
-        btnUpdateTypeFood = (Button) findViewById(R.id.btn_update_type_food);
-        btnUbackToChosePubulum = (Button) findViewById(R.id.btn_uback_to_chose_pubulum);
-        edtUpdateTypeFoodId = (TextInputEditText) findViewById(R.id.edt_update_type_food_id);
-        edtUpdateFoodName = (TextInputEditText) findViewById(R.id.edt_update_food_name);
+        btnUpdateTypeFood =  findViewById(R.id.btn_update_type_food);
+        btnUbackToChosePubulum =  findViewById(R.id.btn_uback_to_chose_pubulum);
+        edtUpdateTypeFoodId =  findViewById(R.id.edt_update_type_food_id);
+        edtUpdateFoodName =  findViewById(R.id.edt_update_food_name);
 
     }
 }

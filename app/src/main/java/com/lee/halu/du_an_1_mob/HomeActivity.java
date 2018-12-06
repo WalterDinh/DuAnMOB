@@ -48,11 +48,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         diagramFragment = new DiagramFragment();
         listOrderFragment = new ListOrderFragment();
         hienthimhsodo();
-
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference myRef = database.getReference("message");
-//
-//        myRef.setValue("Hello, World!");
     }
 
     @Override

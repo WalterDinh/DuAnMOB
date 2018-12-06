@@ -22,45 +22,38 @@ public class CreateZoneActivity extends AppCompatActivity {
     private Button btnCreateDiagram;
     private TextInputEditText edtCreateIdZone;
     private TextInputEditText edtCreateZoneName;
-    LoginActivity loginActivity;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_zone2);
         init();
-        loginActivity=new LoginActivity();
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CreateZoneActivity.this,HomeActivity.class));
+                startActivity(new Intent(CreateZoneActivity.this, HomeActivity.class));
+                finish();
             }
-        });
-        btnCreateDiagram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(CreateZoneActivity.this,CreateDiagramActivity.class));
-                }
         });
         btnCreateZone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String zoneid = edtCreateIdZone.getText().toString();
-                final String zonename=edtCreateZoneName.getText().toString();
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("User").child("adminhalu").child("khu");
+                final String zonename = edtCreateZoneName.getText().toString();
+                myRef = database.getReference("User").child("adminhalu").child("khu");
                 String zoneids = myRef.child(zoneid).getKey();
                 Model model = new Model(zoneid, zonename);
                 myRef.child(zoneids).setValue(model);
-
-
-
-
-        }
+                finish();
+            }
         });
 
     }
-    private void init(){
-        imageView3 =  findViewById(R.id.image_create_zone);
+
+    private void init() {
+        imageView3 = findViewById(R.id.image_create_zone);
         btnCreateZone = findViewById(R.id.btn_create_zone);
         btnCreateDiagram = findViewById(R.id.btn_back_to_create_diagram);
         edtCreateIdZone = findViewById(R.id.edt_create_id_zone);
