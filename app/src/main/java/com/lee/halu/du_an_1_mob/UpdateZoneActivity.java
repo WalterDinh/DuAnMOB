@@ -38,7 +38,7 @@ public class UpdateZoneActivity extends AppCompatActivity {
         edtUpdateZoneId.setText(bundle.getString("idzonefood"));
         edtUpdateZoneName.setText(bundle.getString("zonename"));
         myRef = database.getReference("User").child("adminhalu").child("khu");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelsDataSnapshot :

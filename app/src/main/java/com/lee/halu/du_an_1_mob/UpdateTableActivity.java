@@ -48,7 +48,7 @@ public class UpdateTableActivity extends AppCompatActivity {
         edtUpdateIdTable.setText(bundle.getString("idtable"));
         edtUpdateTableName.setText(bundle.getString("tablename"));
         myRef = database.getReference("User").child("adminhalu").child("khu");
-        myRefs.addValueEventListener(new ValueEventListener() {
+        myRefs.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelDataSnapshot :
@@ -66,7 +66,7 @@ public class UpdateTableActivity extends AppCompatActivity {
             }
         });
         myRef = database.getReference("User").child("adminhalu").child("ban");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelsDataSnapshot :

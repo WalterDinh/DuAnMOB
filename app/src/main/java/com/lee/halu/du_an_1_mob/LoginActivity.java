@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                 final String username = email.getText().toString();
                 final String passwords = password.getText().toString();
                 myRef = database.getReference("User");
-                myRef.addValueEventListener(new ValueEventListener() {
+                myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         Log.e("SBC","LOGIN");

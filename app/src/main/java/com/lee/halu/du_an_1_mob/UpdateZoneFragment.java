@@ -40,7 +40,7 @@ public class UpdateZoneFragment extends Fragment {
         btn_insert_zone = view.findViewById(R.id.btn_insert_zone);
         listView = view.findViewById(R.id.list);
         myRef = database.getReference("User").child("adminhalu").child("khu");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelDataSnapshot :
@@ -94,7 +94,6 @@ public class UpdateZoneFragment extends Fragment {
                 Toast.makeText(getActivity(), "Đã xóa", Toast.LENGTH_SHORT).show();
                 delete(position);
                 models.remove(position);
-                models.clear();
                 adapter = new NameAdapter(models, getActivity());
                 listView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();

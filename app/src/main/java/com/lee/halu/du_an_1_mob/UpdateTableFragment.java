@@ -40,7 +40,7 @@ public class UpdateTableFragment extends Fragment {
         listView = view.findViewById(R.id.list);
 
         myRef = database.getReference("User").child("adminhalu").child("ban");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelDataSnapshot :
@@ -91,7 +91,6 @@ public class UpdateTableFragment extends Fragment {
                 Toast.makeText(getActivity(), "Đã xóa", Toast.LENGTH_SHORT).show();
                 delete(position);
                 models.remove(position);
-                models.clear();
                 adapter.notifyDataSetChanged();
 
             }

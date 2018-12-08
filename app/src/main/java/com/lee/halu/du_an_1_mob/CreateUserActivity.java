@@ -42,6 +42,7 @@ public class CreateUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CreateUserActivity.this, LoginActivity.class));
+                finish();
             }
         });
         btnChangepassword2.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +82,7 @@ public class CreateUserActivity extends AppCompatActivity {
                                     myRef.child(user).setValue(model);
                                     Toast.makeText(CreateUserActivity.this, "Tạo thành công", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(CreateUserActivity.this, HelloActivity.class));
-
+                                    finish();
                                 } else {
                                     edtCreateUser.setError("Tên đăng nhập đã tồn tại");
                                     Toast.makeText(CreateUserActivity.this, "Tên đăng nhập đã tồn tại", Toast.LENGTH_SHORT).show();
@@ -104,11 +105,11 @@ public class CreateUserActivity extends AppCompatActivity {
     }
 
     private void init() {
-        btnChangepassword2 =  findViewById(R.id.btn_create_user);
-        btnBackchangepassword =  findViewById(R.id.btn_back_login);
-        edtCreateUser =  findViewById(R.id.edt_create_user);
-        edtCreatePassword =  findViewById(R.id.edt_create_password);
-        edtRepassword2 =  findViewById(R.id.edt_repassword2);
+        btnChangepassword2 = findViewById(R.id.btn_create_user);
+        btnBackchangepassword = findViewById(R.id.btn_back_login);
+        edtCreateUser = findViewById(R.id.edt_create_user);
+        edtCreatePassword = findViewById(R.id.edt_create_password);
+        edtRepassword2 = findViewById(R.id.edt_repassword2);
 
     }
 }

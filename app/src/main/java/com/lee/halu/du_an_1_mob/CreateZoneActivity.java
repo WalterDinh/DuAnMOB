@@ -46,6 +46,7 @@ public class CreateZoneActivity extends AppCompatActivity {
                 String zoneids = myRef.child(zoneid).getKey();
                 Model model = new Model(zoneid, zonename);
                 myRef.child(zoneids).setValue(model);
+                startActivity(new Intent(CreateZoneActivity.this,UpdateDiagramActivity.class));
                 finish();
             }
         });

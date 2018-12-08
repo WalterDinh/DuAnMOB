@@ -40,7 +40,7 @@ public class UpdateTypeDrinksFragment extends Fragment {
         btn_insert_type_drinks = view.findViewById(R.id.btn_insert_type_drinks);
         listView = view.findViewById(R.id.list);
         myRef = database.getReference("User").child("adminhalu").child("loaiDoUong");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelDataSnapshot :
@@ -85,7 +85,6 @@ public class UpdateTypeDrinksFragment extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 delete(position);
                 models.remove(position);
-                models.clear();
                 adapter.notifyDataSetChanged();
                 Toast.makeText(getActivity(), "Đã xóa", Toast.LENGTH_SHORT).show();
 

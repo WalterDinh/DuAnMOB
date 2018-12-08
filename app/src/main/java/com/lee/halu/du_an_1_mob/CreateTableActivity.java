@@ -37,7 +37,7 @@ public class CreateTableActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_table);
         init();
         myRef = database.getReference("User").child("adminhalu").child("khu");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelDataSnapshot :
@@ -66,17 +66,17 @@ public class CreateTableActivity extends AppCompatActivity {
                 Model model = new Model(idtable, tablename, zonename);
                 myRef1.child(tableids).setValue(model);
                 startActivity(new Intent(CreateTableActivity.this, UpdateDiagramActivity.class));
-
+                finish();
             }
         });
     }
 
     private void init() {
-        btnCreateNewTable =  findViewById(R.id.btn_create_new_table);
-        btnBackToCreateZone =  findViewById(R.id.btn_back_to_create_zone);
-        edtIdTable =  findViewById(R.id.edt_id_table);
-        edtTableName =  findViewById(R.id.edt_table_name);
-        spinnerTable =  findViewById(R.id.spinner_table);
+        btnCreateNewTable = findViewById(R.id.btn_create_new_table);
+        btnBackToCreateZone = findViewById(R.id.btn_back_to_create_zone);
+        edtIdTable = findViewById(R.id.edt_id_table);
+        edtTableName = findViewById(R.id.edt_table_name);
+        spinnerTable = findViewById(R.id.spinner_table);
 
     }
 }

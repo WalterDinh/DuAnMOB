@@ -39,7 +39,7 @@ ItemOrderAdapter itemOrderAdapter;
 
         Log.e("ssaa","hien");
         myRef = database.getReference("User").child("adminhalu").child("doAn");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelDataSnapshot :

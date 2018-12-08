@@ -49,7 +49,7 @@ public class UpdateFoodNameActivity extends AppCompatActivity {
         price=bundle.getInt("foodprice");
         edyUpdateFoodPrice.setText(price+"");
         myRef = database.getReference("User").child("adminhalu").child("loaiDoAn");
-        myRefs.addValueEventListener(new ValueEventListener() {
+        myRefs.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelDataSnapshot :
@@ -67,7 +67,7 @@ public class UpdateFoodNameActivity extends AppCompatActivity {
             }
         });
         myRef = database.getReference("Mon");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelsDataSnapshot :

@@ -34,12 +34,14 @@ public class CreateTypeDrinksActivity extends AppCompatActivity {
                 Model model = new Model(idtypedrinks, typedrinksname);
                 myRef.child(typedrinksids).setValue(model);
                 startActivity(new Intent(CreateTypeDrinksActivity.this, UpdateDrinksActivity.class));
+                finish();
             }
         });
         btnBackToUpdateDrinks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CreateTypeDrinksActivity.this, UpdateDrinksActivity.class));
+                finish();
             }
         });
     }

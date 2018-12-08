@@ -38,7 +38,7 @@ public class ListDrinkFragment extends Fragment {
 
         Log.e("ssaa", "hien");
         myRef = database.getReference("User").child("adminhalu").child("doUong");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelDataSnapshot :

@@ -37,7 +37,7 @@ public class UpdateTypeDrinksActivity extends AppCompatActivity {
         edtUpdateTypeDrinksId.setText(bundle.getString("idtypedrinks"));
         edtUpdateTypeDrinksName.setText(bundle.getString("typedrinksname"));
         myRef = database.getReference("User").child("adminhalu").child("loaiDoUong");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelsDataSnapshot :

@@ -9,17 +9,20 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.lee.halu.du_an_1_mob.DiagramFragment;
 import com.lee.halu.du_an_1_mob.Model.DiagramModel;
+import com.lee.halu.du_an_1_mob.Model.Model;
 import com.lee.halu.du_an_1_mob.Model.OrderModel;
 import com.lee.halu.du_an_1_mob.R;
 
 import java.util.List;
 
 public class DiagramAdpater extends BaseAdapter {
-    List<DiagramModel> diagramModels;
+    List<Model> diagramModels;
     Context context;
+    DiagramFragment diagramFragment;
 
-    public DiagramAdpater(List<DiagramModel> diagramModels, Context context) {
+    public DiagramAdpater(List<Model> diagramModels, Context context) {
         this.diagramModels = diagramModels;
         this.context = context;
     }
@@ -43,15 +46,14 @@ public class DiagramAdpater extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.item_gridview_table, null);
-
+        diagramFragment = new DiagramFragment();
         final Button tablename = view.findViewById(R.id.btn_name);
-tablename.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        tablename.setBackgroundColor(Color.BLUE);
-    }
-});
-        tablename.setText(diagramModels.get(position).getTableName());
+        tablename.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        tablename.setText(diagramModels.get(position).getZonename());
 
         return view;
     }

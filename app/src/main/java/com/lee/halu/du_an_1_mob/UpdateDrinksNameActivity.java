@@ -50,7 +50,7 @@ public class UpdateDrinksNameActivity extends AppCompatActivity {
         price=bundle.getInt("drinksprice");
         edyUpdateDrinksPrice.setText(price+"");
         myRefs = database.getReference("User").child("adminhalu").child("loaiDoUong");
-        myRefs.addValueEventListener(new ValueEventListener() {
+        myRefs.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelDataSnapshot :

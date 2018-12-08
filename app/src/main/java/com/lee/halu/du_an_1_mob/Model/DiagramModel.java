@@ -16,6 +16,7 @@ public class DiagramModel implements Serializable {
     }
 
     public DiagramModel(String tableName) {
+
         this.tableName = tableName;
     }
 }

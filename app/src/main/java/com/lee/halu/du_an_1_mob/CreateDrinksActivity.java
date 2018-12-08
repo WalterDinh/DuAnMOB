@@ -38,7 +38,7 @@ public class CreateDrinksActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_drinks);
         init();
         myRef = database.getReference("User").child("adminhalu").child("loaiDoUong");
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot modelDataSnapshot :
@@ -68,18 +68,18 @@ public class CreateDrinksActivity extends AppCompatActivity {
                 Model model = new Model(idfood, foodname, typefoodname, Integer.parseInt(price));
                 myRef1.child(foodsids).setValue(model);
                 startActivity(new Intent(CreateDrinksActivity.this, UpdateDrinksActivity.class));
-
+                finish();
             }
         });
     }
 
     private void init() {
-        edtCreateDrinksPrice =  findViewById(R.id.edt_create_drinks_price);
-        btnCreateDrinks =  findViewById(R.id.btn_create_drinks);
-        btnBackToUpdateDrinks2 =  findViewById(R.id.btn_back_to_update_drinks2);
-        edtCreateIdDrinks =  findViewById(R.id.edt_create_id_drinks);
-        edtCreateDrinksName =  findViewById(R.id.edt_create_drinks_name);
-        spinnerCreateDrinks =  findViewById(R.id.spinner_create_drinks);
+        edtCreateDrinksPrice = findViewById(R.id.edt_create_drinks_price);
+        btnCreateDrinks = findViewById(R.id.btn_create_drinks);
+        btnBackToUpdateDrinks2 = findViewById(R.id.btn_back_to_update_drinks2);
+        edtCreateIdDrinks = findViewById(R.id.edt_create_id_drinks);
+        edtCreateDrinksName = findViewById(R.id.edt_create_drinks_name);
+        spinnerCreateDrinks = findViewById(R.id.spinner_create_drinks);
 
     }
 }
