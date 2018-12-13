@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="100dp"
+    android:layout_width="70dp"
+android:id="@+id/container3"
+    android:layout_margin="16dp"
     android:layout_height="60dp">
-
-
-    <Button
+    <TextView
         android:id="@+id/btn_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="8dp"
         android:text="A3"
-        android:textSize="15dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:background="@drawable/background_list"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="13dp" />
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

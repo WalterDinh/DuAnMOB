@@ -18,6 +18,8 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class UpdateTypeDrinksActivity extends AppCompatActivity {
     private Button btnUpdateTypeDrinks;
     private Button btnUpdateDrinks;
@@ -36,7 +38,7 @@ public class UpdateTypeDrinksActivity extends AppCompatActivity {
         Bundle bundle = intent.getBundleExtra("bundletypedrinks");
         edtUpdateTypeDrinksId.setText(bundle.getString("idtypedrinks"));
         edtUpdateTypeDrinksName.setText(bundle.getString("typedrinksname"));
-        myRef = database.getReference("User").child("adminhalu").child("loaiDoUong");
+        myRef = database.getReference("User").child(username1).child("loaiDoUong");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

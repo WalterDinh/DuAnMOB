@@ -25,6 +25,8 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class UpdateFoodNameFragment extends Fragment{
     FloatingActionButton btn_insert_food;
     NameAdapter adapter;
@@ -38,7 +40,7 @@ public class UpdateFoodNameFragment extends Fragment{
         View view = inflater.inflate(R.layout.update_food_name_fragment, container, false);
         btn_insert_food=view.findViewById(R.id.btn_insert_food);
         listView = view.findViewById(R.id.list);
-        myRef = database.getReference("User").child("adminhalu").child("doAn");
+        myRef = database.getReference("User").child(username1).child("doAn");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

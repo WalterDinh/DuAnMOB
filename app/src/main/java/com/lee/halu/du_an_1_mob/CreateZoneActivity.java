@@ -16,6 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lee.halu.du_an_1_mob.Model.Model;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class CreateZoneActivity extends AppCompatActivity {
     private ImageView imageView3;
     private Button btnCreateZone;
@@ -42,7 +44,7 @@ public class CreateZoneActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String zoneid = edtCreateIdZone.getText().toString();
                 final String zonename = edtCreateZoneName.getText().toString();
-                myRef = database.getReference("User").child("adminhalu").child("khu");
+                myRef = database.getReference("User").child(username1).child("khu");
                 String zoneids = myRef.child(zoneid).getKey();
                 Model model = new Model(zoneid, zonename);
                 myRef.child(zoneids).setValue(model);

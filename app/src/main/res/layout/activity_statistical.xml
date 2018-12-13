@@ -5,31 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StatisticalActivity">
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appBarLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_revert"
-                android:tint="@color/cardview_light_background"
-                />
-        </android.support.v7.widget.Toolbar>
-
-    </android.support.design.widget.AppBarLayout>
-
     <Button
         android:id="@+id/button4"
         android:layout_width="match_parent"
@@ -38,17 +13,30 @@
         app:layout_constraintBottom_toBottomOf="@+id/appBarLayout2"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
 
-    <Button
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="@drawable/gradient_background"
-        android:text="Báo cáo doanh thu"
-        android:textColor="@color/logo"
-        android:textSize="20dp"
+
         app:layout_constraintTop_toBottomOf="@+id/button4"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp" >
+        <ImageView
+            android:id="@+id/img_back_to_home"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icons_back"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Báo cáo doanh thu"
+            android:textColor="@color/logo"
+            android:textSize="20dp"
+            android:layout_marginRight="30dp"
+
+            android:textAlignment="center"/>
+    </android.support.v7.widget.Toolbar>
 
     <Button
         android:id="@+id/button7"
@@ -144,9 +132,9 @@
         android:id="@+id/toolbar3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/colorPrimary"
         android:minHeight="35dp"
-        android:theme="?attr/actionBarTheme"
+        android:theme="@style/AppTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

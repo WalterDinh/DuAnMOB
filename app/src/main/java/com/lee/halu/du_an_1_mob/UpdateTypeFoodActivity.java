@@ -18,6 +18,8 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class UpdateTypeFoodActivity extends AppCompatActivity {
     private Button btnUpdateTypeFood;
     private Button btnUbackToChosePubulum;
@@ -37,7 +39,7 @@ public class UpdateTypeFoodActivity extends AppCompatActivity {
         Bundle bundle = intent.getBundleExtra("bundle");
         edtUpdateTypeFoodId.setText(bundle.getString("idtypefood"));
         edtUpdateFoodName.setText(bundle.getString("typefoodname"));
-        myRef = database.getReference("User").child("adminhalu").child("loaiDoAn");
+        myRef = database.getReference("User").child(username1).child("loaiDoAn");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

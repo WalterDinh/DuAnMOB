@@ -20,6 +20,8 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class CreateTableActivity extends AppCompatActivity {
     private Button btnCreateNewTable;
     private Button btnBackToCreateZone;
@@ -36,7 +38,7 @@ public class CreateTableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_table);
         init();
-        myRef = database.getReference("User").child("adminhalu").child("khu");
+        myRef = database.getReference("User").child(username1).child("khu");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -61,7 +63,7 @@ public class CreateTableActivity extends AppCompatActivity {
                 final String idtable = edtIdTable.getText().toString();
                 final String tablename = edtTableName.getText().toString();
                 final String zonename = models.get(spinnerTable.getSelectedItemPosition()).getZonename().toString();
-                DatabaseReference myRef1 = database.getReference("User").child("adminhalu").child("ban");
+                DatabaseReference myRef1 = database.getReference("User").child(username1).child("ban");
                 String tableids = myRef1.child(idtable).getKey();
                 Model model = new Model(idtable, tablename, zonename);
                 myRef1.child(tableids).setValue(model);

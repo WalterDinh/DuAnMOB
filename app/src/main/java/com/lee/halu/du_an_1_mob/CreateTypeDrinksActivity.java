@@ -11,6 +11,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lee.halu.du_an_1_mob.Model.Model;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class CreateTypeDrinksActivity extends AppCompatActivity {
     private Button btnCreateTypeDrinks;
     private Button btnBackToUpdateDrinks;
@@ -28,7 +30,7 @@ public class CreateTypeDrinksActivity extends AppCompatActivity {
                 final String idtypedrinks = edtTypeDrinksId.getText().toString();
                 final String typedrinksname = edtDrinksName.getText().toString();
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("User").child("adminhalu").child("loaiDoUong");
+                DatabaseReference myRef = database.getReference("User").child(username1).child("loaiDoUong");
 
                 String typedrinksids = myRef.child(idtypedrinks).getKey();
                 Model model = new Model(idtypedrinks, typedrinksname);

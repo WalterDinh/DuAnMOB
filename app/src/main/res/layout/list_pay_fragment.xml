@@ -8,10 +8,10 @@
     android:weightSum="5">
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btn_table_name_in_pay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/background2"
         android:text="Tên bàn"
         android:textColor="@color/cam"
         app:layout_constraintBottom_toTopOf="@+id/toolbar3"
@@ -23,7 +23,7 @@
         android:id="@+id/toolbar3"
         android:layout_width="match_parent"
         android:layout_height="33dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/background2"
         android:orientation="horizontal"
         android:weightSum="4"
         app:layout_constraintTop_toBottomOf="@+id/button8"
@@ -70,60 +70,58 @@
             android:textAlignment="center"
             android:textColor="#fff" />
     </LinearLayout>
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="3"
+    android:background="@drawable/background_list"
+    >
     <include
-        android:layout_weight="3.5"
         android:id="@+id/include4"
         layout="@layout/list_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
        />
+</LinearLayout>
 
     <LinearLayout
-        android:layout_weight="2.5"
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:background="@drawable/background_list"
         android:orientation="vertical"
-        android:weightSum="6"
- >
+        android:weightSum="6">
 
-        <Button
-            android:id="@+id/button13"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_weight="0.05"
-            android:background="@color/cam" />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_weight="1"
-    android:gravity="center">
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="THANNH TOÁN :"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        android:textColor="@color/colorPrimary"
-        android:textSize="20dp"
-        />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="THANNH TOÁN :"
 
-    <TextView
-        android:id="@+id/txt_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="16dp"
-        android:text="999999999999"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp" />
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/txt_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:text="0 VND"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

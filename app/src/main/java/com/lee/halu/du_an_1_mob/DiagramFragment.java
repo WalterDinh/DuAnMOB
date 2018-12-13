@@ -30,6 +30,8 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class DiagramFragment extends Fragment {
     DiagramAdpater adpater;
     List<Model> models = new ArrayList<>();
@@ -45,7 +47,7 @@ public class DiagramFragment extends Fragment {
         View view = inflater.inflate(R.layout.diagram_fragment, container, false);
         gridViewl = view.findViewById(R.id.gridview2);
 
-        myRef = database.getReference("User").child("adminhalu").child("ban");
+        myRef = database.getReference("User").child(username1).child("ban");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -59,10 +61,12 @@ public class DiagramFragment extends Fragment {
                 gridViewl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Toast.makeText(getContext(), "loz", Toast.LENGTH_SHORT).show();
+                        String name = models.get(position).getZonename().toString();
+                      
                         startActivity(new Intent(getActivity(),PayActivity.class));
                     }
                 });
+
             }
 
             @Override
@@ -71,27 +75,22 @@ public class DiagramFragment extends Fragment {
             }
         });
 
-
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 type = intent.getStringExtra("zonename");
                 Log.e("type", type);
                 models.clear();
-                myRef = database.getReference("User").child("adminhalu").child("ban");
+                myRef = database.getReference("User").child(username1).child("ban");
                 myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot modelDataSnapshot :
                                 dataSnapshot.getChildren()) {
                             Model model = modelDataSnapshot.getValue(Model.class);
+                            Log.e("models",model.getName2());
+                            if(model.getName2().equalsIgnoreCase(type))
                             models.add(model);
-                        }
-                        for (int i = 0; i < models.size(); i++) {
-                            Log.e("size",models.size()+"");
-                            if (!models.get(i).getName2().equalsIgnoreCase(type)) {
-                                models.remove(i);
-                            }
 
                         }
                         adpater = new DiagramAdpater(models, getActivity());

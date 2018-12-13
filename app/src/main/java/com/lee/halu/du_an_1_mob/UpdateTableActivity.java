@@ -22,6 +22,8 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class UpdateTableActivity extends AppCompatActivity {
     private Button btnUpdateTable;
     private Button btnBackToCreateZones;
@@ -47,7 +49,7 @@ public class UpdateTableActivity extends AppCompatActivity {
         Bundle bundle = intent.getBundleExtra("bundletable");
         edtUpdateIdTable.setText(bundle.getString("idtable"));
         edtUpdateTableName.setText(bundle.getString("tablename"));
-        myRef = database.getReference("User").child("adminhalu").child("khu");
+        myRefs = database.getReference("User").child(username1).child("khu");
         myRefs.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -65,7 +67,7 @@ public class UpdateTableActivity extends AppCompatActivity {
 
             }
         });
-        myRef = database.getReference("User").child("adminhalu").child("ban");
+        myRef = database.getReference("User").child(username1).child("ban");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

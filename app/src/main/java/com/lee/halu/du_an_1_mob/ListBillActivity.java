@@ -1,7 +1,10 @@
 package com.lee.halu.du_an_1_mob;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.lee.halu.du_an_1_mob.Adapter.BillAdapter;
@@ -18,14 +21,23 @@ public class ListBillActivity extends AppCompatActivity {
 List<BillModel> billModels=new ArrayList<>();
 BillAdapter billAdapter;
 ListView listView;
+ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_bill);
         date();
+        imageView=findViewById(R.id.img_back_to_home2);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ListBillActivity.this,HomeActivity.class));
+            }
+        });
         listView=findViewById(R.id.list);
         billAdapter=new BillAdapter(billModels,this);
         listView.setAdapter(billAdapter);
+
     }
     private void date(){
         Calendar c = Calendar.getInstance();

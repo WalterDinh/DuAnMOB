@@ -22,6 +22,8 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class UpdateDrinksNameActivity extends AppCompatActivity {
     private Button btnUpdateDrinks2;
     private Button btnBackToUpdateDrinks2;
@@ -49,7 +51,7 @@ public class UpdateDrinksNameActivity extends AppCompatActivity {
         edtUpdateDrinksName.setText(bundle.getString("drinksname"));
         price=bundle.getInt("drinksprice");
         edyUpdateDrinksPrice.setText(price+"");
-        myRefs = database.getReference("User").child("adminhalu").child("loaiDoUong");
+        myRefs = database.getReference("User").child(username1).child("loaiDoUong");
         myRefs.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -71,8 +73,8 @@ public class UpdateDrinksNameActivity extends AppCompatActivity {
         btnUpdateDrinks2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRefs = database.getReference("User").child("adminhalu").child("doUong");
-                myRef.addValueEventListener(new ValueEventListener() {
+                myRefs = database.getReference("User").child(username1).child("doUong");
+                myRefs.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot modelsDataSnapshot :
@@ -103,7 +105,7 @@ public class UpdateDrinksNameActivity extends AppCompatActivity {
         ii= Integer.parseInt(yy);
         zonename=models1.get(spinnerUpdateDrinks.getSelectedItemPosition()).getZonename().toString();
         Model model2 = new Model(models.get(position).getIdzone(), edtUpdateDrinksName.getText().toString(),zonename, ii);
-        myRef.child(models.get(position).getIdzone()).setValue(model2);
+        myRefs.child(models.get(position).getIdzone()).setValue(model2);
         Intent intent1 = new Intent();
         intent1.putExtra("modeldrinksname2", model2);
         intent1.putExtra("positiondrinksname3", position);

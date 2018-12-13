@@ -12,6 +12,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lee.halu.du_an_1_mob.Model.Model;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class CreateTypeFoodActivity extends AppCompatActivity {
     private Button btnCreateTypeFood;
     private Button btnBackToChosePubulum;
@@ -31,7 +33,7 @@ public class CreateTypeFoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String idfood = edtTypeFoodId.getText().toString();
                 final String foodname = edtFoodName.getText().toString();
-                myRef = database.getReference("User").child("adminhalu").child("loaiDoAn");
+                myRef = database.getReference("User").child(username1).child("loaiDoAn");
                 String foodids = myRef.child(idfood).getKey();
                 Model model = new Model(idfood, foodname);
                 myRef.child(foodids).setValue(model);

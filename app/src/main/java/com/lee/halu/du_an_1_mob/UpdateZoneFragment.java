@@ -25,6 +25,8 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class UpdateZoneFragment extends Fragment {
     FloatingActionButton btn_insert_zone;
     NameAdapter adapter;
@@ -39,7 +41,7 @@ public class UpdateZoneFragment extends Fragment {
         View view = inflater.inflate(R.layout.update_zonef_ragment, container, false);
         btn_insert_zone = view.findViewById(R.id.btn_insert_zone);
         listView = view.findViewById(R.id.list);
-        myRef = database.getReference("User").child("adminhalu").child("khu");
+        myRef = database.getReference("User").child(username1).child("khu");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -68,7 +70,11 @@ public class UpdateZoneFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                String name = models.get(position).getZonename().toString();
+                Intent intent
+                        = new Intent("zone1");
+                intent.putExtra("zonename", name);
+                getActivity().sendBroadcast(intent);
             }
         });
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {

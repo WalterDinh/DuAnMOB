@@ -11,14 +11,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logodd"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,30 +36,80 @@
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
+
             android:theme="@style/AppTheme" />
-        <activity android:name=".UserActivity" />
-        <activity android:name=".ChangePassword" />
-        <activity android:name=".ChoseCreateDataActivity" />
-        <activity android:name=".CreateZoneActivity" />
-        <activity android:name=".CreateTableActivity" />
-        <activity android:name=".CreateTypeDrinksActivity" />
-        <activity android:name=".CreateDrinksActivity" />
-        <activity android:name=".ChoseCreatePubulumActivity" />
-        <activity android:name=".ListBillActivity" />
-        <activity android:name=".StatisticalActivity" />
-        <activity android:name=".UpdateDiagramActivity" />
-        <activity android:name=".UpdateFoodActivity" />
-        <activity android:name=".UpdateDrinksActivity" />
-        <activity android:name=".CreateTypeFoodActivity" />
-        <activity android:name=".CreateFoodActivity" />
-        <activity android:name=".PayActivity" />
-        <activity android:name=".UpdateTypeFoodActivity" />
-        <activity android:name=".UpdateZoneActivity" />
-        <activity android:name=".UpdateTypeDrinksActivity" />
-        <activity android:name=".UpdateTableActivity" />
-        <activity android:name=".UpdateDrinksNameActivity" />
-        <activity android:name=".UpdateFoodNameActivity" />
-        <activity android:name=".CreateUserActivity"></activity>
+        <activity
+            android:name=".UserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChangePassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChoseCreateDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateZoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateTableActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateTypeDrinksActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateDrinksActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChoseCreatePubulumActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ListBillActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StatisticalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateDiagramActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateFoodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateDrinksActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateTypeFoodActivity"
+            android:screenOrientation="portrait"
+
+            />
+        <activity
+            android:name=".CreateFoodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PayActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".UpdateTypeFoodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateZoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateTypeDrinksActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateTableActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateDrinksNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateFoodNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreateUserActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

@@ -2,11 +2,13 @@ package com.lee.halu.du_an_1_mob.Adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lee.halu.du_an_1_mob.DiagramFragment;
@@ -47,12 +49,8 @@ public class DiagramAdpater extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.item_gridview_table, null);
         diagramFragment = new DiagramFragment();
-        final Button tablename = view.findViewById(R.id.btn_name);
-        tablename.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
+        final TextView tablename = view.findViewById(R.id.btn_name);
+        final LinearLayout constraintLayout = view.findViewById(R.id.container3);
         tablename.setText(diagramModels.get(position).getZonename());
 
         return view;

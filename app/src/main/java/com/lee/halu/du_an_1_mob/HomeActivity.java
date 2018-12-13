@@ -29,7 +29,7 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DiagramFragment diagramFragment;
     private ListOrderFragment listOrderFragment;
-
+    private ZoneFragment zoneFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        zoneFragment = new ZoneFragment();
         diagramFragment = new DiagramFragment();
         listOrderFragment = new ListOrderFragment();
         hienthimhsodo();
@@ -76,6 +76,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(HomeActivity.this,LoginActivity.class));
             return true;
         }
 
@@ -99,11 +100,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(HomeActivity.this, StatisticalActivity.class));
 
         } else if (id == R.id.nav_share) {
-            startActivity(new Intent(HomeActivity.this, UserActivity.class));
+            startActivity(new Intent(HomeActivity.this, ChoseCreateDataActivity.class));
 
         } else if (id == R.id.nav_send) {
-            startActivity(new Intent(HomeActivity.this, PayActivity.class));
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
 
+            // Tao su kien ket thuc app
+            Intent startMain = new Intent(Intent.ACTION_MAIN);
+            startMain.addCategory(Intent.CATEGORY_HOME);
+            startActivity(startMain);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -119,10 +126,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
 
-        if (diagramFragment.isAdded()) { //neu co chi hien thi
+        if (diagramFragment.isAdded() && zoneFragment.isAdded()) { //neu co chi hien thi
             ft.show(diagramFragment);
+            ft.show(zoneFragment);
         } else { //khong co --> them vao
             ft.add(R.id.container, diagramFragment);
+            ft.add(R.id.container1, zoneFragment);
         }
 
         if (listOrderFragment.isAdded()) { //neu dang hien thi --> an no di
@@ -147,8 +156,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             ft.add(R.id.container, listOrderFragment);
         }
 
-        if (diagramFragment.isAdded()) { //neu dang hien thi --> an no di
+        if (diagramFragment.isAdded() && zoneFragment.isAdded()) { //neu dang hien thi --> an no di
             ft.hide(diagramFragment);
+            ft.hide(zoneFragment);
         }
 
         //sau khi thay doi fragment--> phai xac thuc

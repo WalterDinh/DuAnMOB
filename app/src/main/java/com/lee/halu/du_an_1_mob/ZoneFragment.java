@@ -22,17 +22,15 @@ import java.util.List;
 
 import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
 
-public class ListTypeFoodFragment extends Fragment {
+public class ZoneFragment extends Fragment {
     NameAdapter nameAdapter;
     List<Model> modelss = new ArrayList<>();
     ListView listView;
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myref;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //chuyen layout --> view
-        View view = inflater.inflate(R.layout.list_type_food_fragment,
-                container, false);
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.list_type_fragment, container, false);
         listView = view.findViewById(R.id.list);
 
         myref = database.getReference("User").child(username1).child("khu");
@@ -64,5 +62,6 @@ public class ListTypeFoodFragment extends Fragment {
             }
         });
         return view;
+
     }
 }

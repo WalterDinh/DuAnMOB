@@ -134,6 +134,8 @@
             android:layout_height="wrap_content"
             android:hint="Giá"
             android:backgroundTint="@color/chu"
+            android:textColor="@color/chu"
+            android:textColorHint="@color/chu"
             />
     </android.support.design.widget.TextInputLayout>
 

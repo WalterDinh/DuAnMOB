@@ -1,8 +1,11 @@
 package com.lee.halu.du_an_1_mob;
 
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -19,11 +22,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.lee.halu.du_an_1_mob.Adapter.DiagramAdpater;
 import com.lee.halu.du_an_1_mob.Adapter.NameAdapter;
 import com.lee.halu.du_an_1_mob.Model.Model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
 
 public class UpdateTableFragment extends Fragment {
     FloatingActionButton btn_insert_table;
@@ -31,15 +37,16 @@ public class UpdateTableFragment extends Fragment {
     ListView listView;
     List<Model> models = new ArrayList<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef;
-
+    DatabaseReference myRef,getMyRef;
+    String zone;
+private BroadcastReceiver  broadcastReceiver;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.update_table_fragment, container, false);
         btn_insert_table = view.findViewById(R.id.btn_insert_table);
         listView = view.findViewById(R.id.list);
 
-        myRef = database.getReference("User").child("adminhalu").child("ban");
+        myRef = database.getReference("User").child(username1).child("ban");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -61,7 +68,37 @@ public class UpdateTableFragment extends Fragment {
 
             }
         });
+broadcastReceiver=new BroadcastReceiver() {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        zone = intent.getStringExtra("zonename");
+        Log.e("type", zone);
+        models.clear();
+        getMyRef = database.getReference("User").child(username1).child("ban");
+        getMyRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot modelDataSnapshot :
+                        dataSnapshot.getChildren()) {
+                    Model model = modelDataSnapshot.getValue(Model.class);
+                    Log.e("models",model.getName2());
+                    if(model.getName2().equalsIgnoreCase(zone))
+                        models.add(model);
 
+                }
+                adapter = new NameAdapter(models, getActivity());
+                listView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+};
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -76,6 +113,8 @@ public class UpdateTableFragment extends Fragment {
                 startActivity(new Intent(getActivity(), CreateTableActivity.class));
             }
         });
+        IntentFilter  intentFilter=new IntentFilter("zone1");
+        getActivity().registerReceiver(broadcastReceiver,intentFilter);
         return view;
     }
 

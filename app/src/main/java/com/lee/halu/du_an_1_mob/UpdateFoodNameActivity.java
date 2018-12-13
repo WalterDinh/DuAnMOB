@@ -21,6 +21,8 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class UpdateFoodNameActivity extends AppCompatActivity {
     private Button btnUpdateFood2;
     private Button btnBackToUpdateFood2;
@@ -48,7 +50,7 @@ public class UpdateFoodNameActivity extends AppCompatActivity {
         edtUpdateFoodName.setText(bundle.getString("foodname"));
         price=bundle.getInt("foodprice");
         edyUpdateFoodPrice.setText(price+"");
-        myRef = database.getReference("User").child("adminhalu").child("loaiDoAn");
+        myRefs = database.getReference("User").child(username1).child("loaiDoAn");
         myRefs.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -66,32 +68,32 @@ public class UpdateFoodNameActivity extends AppCompatActivity {
 
             }
         });
-        myRef = database.getReference("Mon");
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot modelsDataSnapshot :
-                        dataSnapshot.getChildren()) {
-                    Model model = modelsDataSnapshot.getValue(Model.class);
-                    models.add(model);
-                    Log.e("model", models.size() + "");
-                }
 
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-
-        });
         btnUpdateFood2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                myRef = database.getReference("User").child(username1).child("doAn");
+                myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot modelsDataSnapshot :
+                                dataSnapshot.getChildren()) {
+                            Model model = modelsDataSnapshot.getValue(Model.class);
+                            models.add(model);
+                            Log.e("model", models.size() + "");
+                        }
+                        update();
+                        startActivityForResult(new Intent(UpdateFoodNameActivity.this, UpdateFoodActivity.class), 222);
+                        finish();
+                    }
 
-                update();
-                startActivityForResult(new Intent(UpdateFoodNameActivity.this, UpdateFoodActivity.class), 222);
-                finish();
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+
+                });
+
             }
         });
     }

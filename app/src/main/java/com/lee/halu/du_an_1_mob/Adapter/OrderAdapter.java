@@ -8,15 +8,16 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.lee.halu.du_an_1_mob.Model.OrderModel;
+import com.lee.halu.du_an_1_mob.Model.PaysModel;
 import com.lee.halu.du_an_1_mob.R;
 
 import java.util.List;
 
 public class OrderAdapter extends BaseAdapter {
-    List<OrderModel> orderModels;
+    List<PaysModel> orderModels;
     Context context;
 
-    public OrderAdapter(List<OrderModel> orderModels, Context context) {
+    public OrderAdapter(List<PaysModel> orderModels, Context context) {
         this.orderModels = orderModels;
         this.context = context;
     }
@@ -45,9 +46,9 @@ public class OrderAdapter extends BaseAdapter {
         TextView timeuse=view.findViewById(R.id.txt_use_time_in_order);
         TextView pay1=view.findViewById(R.id.txt_pay_in_order);
 
-        tablename.setText(orderModels.get(position).getTablename());
-        timeuse.setText(orderModels.get(position).getTimeuse());
-        pay1.setText(orderModels.get(position).getPay1());
+        tablename.setText("Tên bàn");
+        timeuse.setText(orderModels.get(position).getTime());
+        pay1.setText(orderModels.get(position).getAmoung());
         return view;
     }
 }

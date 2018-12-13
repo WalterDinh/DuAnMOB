@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
     DatabaseReference myRef;
     UserModel userModel;
     List<UserModel> userModels = new ArrayList<>();
+    static String username1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String username = email.getText().toString();
                 final String passwords = password.getText().toString();
+                username1=username;
                 myRef = database.getReference("User");
                 myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override

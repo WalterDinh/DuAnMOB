@@ -23,7 +23,7 @@ public class ChoseCreateDataActivity extends AppCompatActivity {
         btnBackUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChoseCreateDataActivity.this,UserActivity.class));
+                startActivity(new Intent(ChoseCreateDataActivity.this,HomeActivity.class));
             }
         });
         btnCreateDiagram.setOnClickListener(new View.OnClickListener() {

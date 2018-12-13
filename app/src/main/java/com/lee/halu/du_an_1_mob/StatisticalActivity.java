@@ -1,7 +1,10 @@
 package com.lee.halu.du_an_1_mob;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.lee.halu.du_an_1_mob.Adapter.StatisticalAdapter;
@@ -17,11 +20,20 @@ public class StatisticalActivity extends AppCompatActivity {
 List<StatisticalModel> statisticalModels=new ArrayList<>();
 StatisticalAdapter statisticalAdapter;
 ListView listView;
+ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistical);
         date();
+        imageView=findViewById(R.id.img_back_to_home);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StatisticalActivity.this,HomeActivity.class));
+                finish();
+            }
+        });
         listView=findViewById(R.id.list);
         statisticalAdapter=new StatisticalAdapter(statisticalModels,this);
         listView.setAdapter(statisticalAdapter);

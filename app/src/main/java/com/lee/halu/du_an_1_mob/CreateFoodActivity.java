@@ -20,6 +20,8 @@ import com.lee.halu.du_an_1_mob.Model.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.lee.halu.du_an_1_mob.LoginActivity.username1;
+
 public class CreateFoodActivity extends AppCompatActivity {
     private Button btnCreateFood;
     private Button btnBackToCreateDiagram2;
@@ -37,7 +39,7 @@ public class CreateFoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_food);
         init();
-        myRef = database.getReference("User").child("adminhalu").child("loaiDoAn");
+        myRef = database.getReference("User").child(username1).child("loaiDoAn");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -63,7 +65,7 @@ public class CreateFoodActivity extends AppCompatActivity {
                 final String foodname = edtFoodName.getText().toString();
                 final String price = edtFoodPrice.getText().toString();
                 final String typefoodname = models.get(spinnerFood.getSelectedItemPosition()).getZonename().toString();
-                DatabaseReference myRef1 = database.getReference("User").child("adminhalu").child("doAn");
+                DatabaseReference myRef1 = database.getReference("User").child(username1).child("doAn");
 
                 String foodsids = myRef1.child(idfood).getKey();
                 Model model = new Model(idfood, foodname, typefoodname, Integer.parseInt(price));
