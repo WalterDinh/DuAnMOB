@@ -66,7 +66,7 @@ public class CreateUserActivity extends AppCompatActivity {
                         if (password.length() < 6) {
                             edtCreatePassword.setError("Mật khẩu phải trên 6 kí tự");
 
-                        } else {
+                        }
                             if (password.equals(repassword)) {
                                 for (int i = 0; i < userModels.size(); i++) {
                                     dem = 0;
@@ -81,7 +81,7 @@ public class CreateUserActivity extends AppCompatActivity {
                                     UserModel model = new UserModel(username, password);
                                     myRef.child(user).setValue(model);
                                     Toast.makeText(CreateUserActivity.this, "Tạo thành công", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(CreateUserActivity.this, HelloActivity.class));
+                                    startActivity(new Intent(CreateUserActivity.this, LoginActivity.class));
                                     finish();
                                 } else {
                                     edtCreateUser.setError("Tên đăng nhập đã tồn tại");
@@ -92,7 +92,7 @@ public class CreateUserActivity extends AppCompatActivity {
                                 Toast.makeText(CreateUserActivity.this, "Tên đăng nhập đã tồn tại", Toast.LENGTH_SHORT).show();
                             }
                         }
-                    }
+
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {

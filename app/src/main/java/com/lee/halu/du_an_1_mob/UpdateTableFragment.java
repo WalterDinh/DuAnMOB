@@ -37,9 +37,10 @@ public class UpdateTableFragment extends Fragment {
     ListView listView;
     List<Model> models = new ArrayList<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef,getMyRef;
+    DatabaseReference myRef, getMyRef;
     String zone;
-private BroadcastReceiver  broadcastReceiver;
+    private BroadcastReceiver broadcastReceiver;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.update_table_fragment, container, false);
@@ -54,7 +55,7 @@ private BroadcastReceiver  broadcastReceiver;
                         dataSnapshot.getChildren()) {
                     Model model = modelDataSnapshot.getValue(Model.class);
                     Log.e("ssss", model.getName2());
-                        Log.e("ssss", model.getZonename());
+                    Log.e("ssss", model.getZonename());
                     models.add(model);
                     Log.e("ssss", models.size() + "");
                 }
@@ -68,37 +69,37 @@ private BroadcastReceiver  broadcastReceiver;
 
             }
         });
-broadcastReceiver=new BroadcastReceiver() {
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        zone = intent.getStringExtra("zonename");
-        Log.e("type", zone);
-        models.clear();
-        getMyRef = database.getReference("User").child(username1).child("ban");
-        getMyRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        broadcastReceiver = new BroadcastReceiver() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot modelDataSnapshot :
-                        dataSnapshot.getChildren()) {
-                    Model model = modelDataSnapshot.getValue(Model.class);
-                    Log.e("models",model.getName2());
-                    if(model.getName2().equalsIgnoreCase(zone))
-                        models.add(model);
+            public void onReceive(Context context, Intent intent) {
+                zone = intent.getStringExtra("zonename");
+                Log.e("type", zone);
+                models.clear();
+                getMyRef = database.getReference("User").child(username1).child("ban");
+                getMyRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot modelDataSnapshot :
+                                dataSnapshot.getChildren()) {
+                            Model model = modelDataSnapshot.getValue(Model.class);
+                            Log.e("models", model.getName2());
+                            if (model.getName2().equalsIgnoreCase(zone))
+                                models.add(model);
 
-                }
-                adapter = new NameAdapter(models, getActivity());
-                listView.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
+                        }
+                        adapter = new NameAdapter(models, getActivity());
+                        listView.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
             }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-    }
-};
+        };
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -113,8 +114,8 @@ broadcastReceiver=new BroadcastReceiver() {
                 startActivity(new Intent(getActivity(), CreateTableActivity.class));
             }
         });
-        IntentFilter  intentFilter=new IntentFilter("zone1");
-        getActivity().registerReceiver(broadcastReceiver,intentFilter);
+        IntentFilter intentFilter = new IntentFilter("zone1");
+        getActivity().registerReceiver(broadcastReceiver, intentFilter);
         return view;
     }
 
@@ -162,6 +163,7 @@ broadcastReceiver=new BroadcastReceiver() {
         myRef.child(models.get(i).getIdzone()).removeValue();
 
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

@@ -55,8 +55,7 @@ public class ZoneFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String name = modelss.get(position).getZonename().toString();
-                Intent intent
-                        = new Intent("zone");
+                Intent intent = new Intent("zone");
                 intent.putExtra("zonename", name);
                 getActivity().sendBroadcast(intent);
             }

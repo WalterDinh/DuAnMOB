@@ -60,11 +60,12 @@ public class LoginActivity extends AppCompatActivity {
     UserModel userModel;
     List<UserModel> userModels = new ArrayList<>();
     static String username1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loginactivity);
-        Log.e("SBC","LOGIN");
+        Log.e("SBC", "LOGIN");
         init();
         email.setText("adminhalu");
         password.setText("17122017");
@@ -73,27 +74,29 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String username = email.getText().toString();
                 final String passwords = password.getText().toString();
-                username1=username;
+                username1 = username;
                 myRef = database.getReference("User");
                 myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        Log.e("SBC","LOGIN");
+                        Log.e("SBC", "LOGIN");
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             userModel = snapshot.getValue(UserModel.class);
                             userModels.add(userModel);
-                            for (int i = 0; i < userModels.size(); i++) {
-                                if (username.equals(userModels.get(i).getUsername().toString())
-                                        && passwords.equals(userModels.get(i).getPassword())) {
-                                    startActivity(new Intent(LoginActivity.this, HelloActivity.class));
-                                    finish();
-                                    break;
-                                } else {
-                                    Toast.makeText(LoginActivity.this, "Tên đăng nhập hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
-                                }
+
+                        }
+                        for (int i = 0; i < userModels.size(); i++) {
+                            if (username.equals(userModels.get(i).getUsername().toString())
+                                    && passwords.equals(userModels.get(i).getPassword())) {
+                                Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(LoginActivity.this, HelloActivity.class));
+                                finish();
+                                break;
+                            } else {
+                                Toast.makeText(LoginActivity.this, "Tên đăng nhập hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
                             }
                         }
-                        }
+                    }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
@@ -112,9 +115,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private void init() {
         signup = findViewById(R.id.txt_sign_up);
-        email =  findViewById(R.id.email);
-        password =  findViewById(R.id.password);
-        emailSignInButton =  findViewById(R.id.email_sign_in_button);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        emailSignInButton = findViewById(R.id.email_sign_in_button);
 
     }
 

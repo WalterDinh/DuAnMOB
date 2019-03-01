@@ -51,6 +51,7 @@ List<PaysModel>paysModels=new ArrayList<>();
                 }
                 orderAdapter = new OrderAdapter(paysModels, getActivity());
                 gridView.setAdapter(orderAdapter);
+                orderAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -61,6 +62,8 @@ List<PaysModel>paysModels=new ArrayList<>();
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 startActivity(new Intent(getActivity(), PayActivity.class));
+
+
             }
         });
         return view;
